@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Sherlock
+Comment=Username OSINT
+Type=Application
+Icon=utilities-terminal
+Categories=04-usernames
+Exec=/usr/share/kali-menu/exec-in-shell python3 /usr/share/sherlock/sherlock.py
+Terminal=true
+Path=
+StartupNotify=false

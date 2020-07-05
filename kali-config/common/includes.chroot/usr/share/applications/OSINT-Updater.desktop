@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OSINT-Updater
+Comment=Updater for OS and tools
+Categories=Utility;System;Favorites
+Exec=/usr/share/updater/updater.sh
+Icon=utilities-terminal
+Terminal=true
+Type=Application

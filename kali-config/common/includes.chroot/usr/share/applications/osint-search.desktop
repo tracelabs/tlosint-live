@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OSINT-Search
+Comment=People OSINT
+Type=Application
+Terminal=true
+Categories=02-email;01-phone-numbers
+Icon=utilities-terminal
+Exec=/usr/share/kali-menu/exec-in-shell python3 /usr/share/OSINT-Search/osintS34rCh.py
+Path=
+StartupNotify=false

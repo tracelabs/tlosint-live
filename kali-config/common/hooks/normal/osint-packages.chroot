@@ -1,0 +1,124 @@
+#!/bin/sh
+
+cat <<EOS | sudo bash
+
+echo "deb http://http.kali.org/kali kali-last-snapshot main non-free contrib" | sudo tee /etc/apt/sources.list
+apt-get install software-properties-common -y
+apt-get update 
+apt-get upgrade -y
+apt-get install -y python-pip
+cargo build --release
+#apt-get install -y python3-pip git python-pip rubygems cargo libsodium-dev publicsuffix pkg-config
+#apt-get install -y python3-pip git python-pip rubygems cargo libsqlite3-dev libseccomp-dev libsodium-dev publicsuffix pkg-config
+pip3 install --upgrade virtualenv
+pip3 install --upgrade tweepy
+pip3 install --upgrade pillow
+pip3 install --upgrade exifread
+pip3 install --upgrade jinja2
+pip3 install --upgrade oauth2pip3 
+pip3 install --upgrade youtube-dl
+pip install --upgrade requests
+pip3 install --upgrade fake_useragent
+pip3 install --upgrade dnsdumpster
+pip install --upgrade simplejson
+pip install --upgrade cfscrape
+pip install --upgrade python-docx
+pip install --upgrade urllib3
+pip install --upgrade bs4
+pip install --upgrade lxml
+pip install --upgrade ipdb
+pip install --upgrade pprint
+pip install --upgrade click
+pip install --upgrade numpy
+pip install --upgrade tqdm
+pip3 install --upgrade googletransx
+pip3 install --upgrade requirements
+pip3 install --upgrade schedule
+pip3 install --upgrade pandas
+pip3 install --upgrade aiohttp
+pip3 install --upgrade aiohttp_socks
+pip3 install --upgrade cchardet
+pip3 install --upgrade elasticsearch
+pip3 install --upgrade geopy
+pip3 install --upgrade h8mail
+pip3 install --upgrade instaloader
+
+mkdir -p /usr/share/phoneinfoga
+wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz
+cd /usr/share/phoneinfoga
+tar xvf phoneinfoga_$(uname -s)_$(uname -m).tar.gz
+mv ./phoneinfoga /usr/bin/phoneinfoga
+
+git clone --recursive git://github.com/xHak9x/fbi.git /usr/share/fbi
+cd /usr/share/fbi
+pip3 install -r requirements.txt
+
+pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+
+git clone --recursive git://github.com/hatlord/Spiderpig.git /usr/share/Spiderpig
+cd /usr/share/Spiderpig
+bundle install
+
+git clone --recursive git://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
+cd /usr/share/DumpsterDiver
+pip3 install -r requirements.txt
+
+git clone --recursive git://github.com/m4ll0k/Infoga.git /usr/share/Infoga
+cd /usr/share/Infoga
+python setup.py install
+
+git clone --recursive git://github.com/Lulz3xploit/LittleBrother /usr/share/LittleBrother
+cd /usr/share/LittleBrother
+pip3 install -r requirements.txt
+
+git clone --recursive git://github.com/am0nt31r0/OSINT-Search.git /usr/share/OSINT-Search
+cd /usr/share/OSINT-Search
+pip3 install -r requirements.txt
+pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
+pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
+
+git clone --recursive git://github.com/aboul3la/Sublist3r.git /usr/share/Sublist3r
+cd /usr/share/Sublist3r/
+pip3 install -r requirements.txt
+
+git clone --recursive git://github.com/kpcyrd/sn0int.git /usr/share/sn0int
+cd /usr/share/sn0int
+cargo install -f --path .
+export PATH=""/root/.cargo/bin:$PATH""
+source ~/.bashrc
+
+pip3 install -U checkdmarc
+pip3 install -U git+https://github.com/domainaware/checkdmarc.git
+
+git clone --recursive git://github.com/s0md3v/Photon.git /usr/share/Photon
+
+git clone --recursive git://github.com/sham00n/buster /usr/share/buster
+cd /usr/share/buster
+python3 setup.py install
+
+git clone --recursive git://github.com/Lazza/Carbon14 /usr/share/Carbon14
+
+git clone --recursive git://github.com/sherlock-project/sherlock.git /usr/share/sherlock
+cd /usr/share/sherlock
+python3 -m pip install -r requirements.txt
+
+git clone --recursive git://github.com/guelfoweb/knock.git /usr/share/knock
+cd /usr/share/knock
+python setup.py install
+
+git clone --recursive git://github.com/bhavsec/reconspider /usr/share/reconspider
+cd /usr/share/reconspider
+python3 setup.py install
+
+git clone --recursive git://github.com/thewhiteh4t/FinalRecon.git /usr/share/FinalRecon
+cd /usr/share/FinalRecon
+pip3 install -r requirements.txt
+
+git clone --recursive git://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
+cd /usr/share/WikiLeaker 
+chmod +x setup.sh
+#./setup.sh 2>&1 /dev/null
+
+systemctl enable anbox-container-manager.service
+
+EOS

@@ -1,0 +1,16 @@
+<background>
+  <static>
+    <duration>8640000.0</duration>
+    <file>
+      <size width="1024" height="768">/usr/share/backgrounds/kali/kali-light-4x3.png</size>
+      <size width="1280" height="720">/usr/share/backgrounds/kali/kali-light-16x9.png</size>
+      <size width="1280" height="800">/usr/share/backgrounds/kali/kali-light-16x10.png</size>
+      <size width="1600" height="1200">/usr/share/backgrounds/kali/kali-light-4x3.png</size>
+      <size width="1920" height="1080">/usr/share/backgrounds/kali/kali-light-16x9.png</size>
+      <size width="1920" height="1200">/usr/share/backgrounds/kali/kali-light-16x10.png</size>
+      <size width="2560" height="1440">/usr/share/backgrounds/kali/kali-light-16x9.png</size>
+      <size width="2560" height="1600">/usr/share/backgrounds/kali/kali-light-16x10.png</size>
+      <size width="3840" height="2160">/usr/share/backgrounds/kali/kali-light-16x9.png</size>
+    </file>
+  </static>
+</background>

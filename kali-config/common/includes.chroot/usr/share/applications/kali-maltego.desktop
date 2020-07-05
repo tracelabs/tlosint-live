@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=maltego
+Encoding=UTF-8
+Exec=sh -c "maltego"
+Icon=kali-maltego
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=08-frameworks
+Comment=Visualise, Map and Mine Data
+X-Kali-Package=maltego
+Actions=ShowWebsite;
+
+[Desktop Action ShowWebsite]
+Name=Paterva Website
+Exec=x-www-browser https://www.paterva.com

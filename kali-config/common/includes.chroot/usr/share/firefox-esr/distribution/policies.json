@@ -1,0 +1,42 @@
+{
+  "policies": {
+    "DisplayBookmarksToolbar": true,
+    "NoDefaultBookmarks": true,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "SanitizeOnShutdown": true,
+    "Homepage": {
+      "URL": "https://tracelabs.org",
+      "Locked": false,
+      "StartPage": "homepage"
+    },
+    "DisableTelemetry": true,
+    "NetworkPrediction": false,
+    "DNSOverHTTPS": {
+      "Enabled": false
+    },
+    "CaptivePortal": false,
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "Highlights": false,
+      "Pocket": false,
+      "Snippets": false,
+      "Locked": false
+    },
+    "Preferences": {
+      "media.peerconnection.enabled": false,
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features": false,
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons": false,
+      "geo.enabled": false,
+      "media.navigator.enabled": false,
+      "network.cookie.lifetimePolicy": 2,
+      "webgl.disabled": true,
+      "dom.event.clipboardevents.enabled": false,
+      "browser.formfill.enable": false,
+      "permissions.default.camera": 2,
+      "permissions.default.microphone": 2,
+      "dom.battery.enabled": false
+    }
+  }
+}

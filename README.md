@@ -20,6 +20,7 @@ This build has only been tested on a pre-existing Kali environment, as recommend
 ```
 sudo bash build_tracelabsiso_recipe.sh
 ```
+If the build process is successful, a .iso file will be created in the `/opt/live-build-config/images` directory. The .iso file can be used for live boot or to install the Virtual Machine. The .iso file can also be converted to a .ova file using the `ovftool` as outlined in the "Converting to an OVA" page (https://www.kali.org/docs/virtualization/converting-to-ova/).
 
 ## Applications included in the build 
 

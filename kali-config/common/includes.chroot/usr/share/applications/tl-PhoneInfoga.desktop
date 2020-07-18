@@ -4,6 +4,5 @@ Comment=PhoneInfoga
 Type=Application
 Icon=utilities-terminal
 Terminal=true
-#Exec=/usr/share/kali-menu/exec-in-shell 'cd /usr/share/phoneinfoga; ./StartUI.sh'
 Exec=/usr/share/kali-menu/exec-in-shell phoneinfoga
 Categories=01-phone-numbers

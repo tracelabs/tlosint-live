@@ -5,6 +5,6 @@ Type=Application
 Categories=05-social-media
 Terminal=true
 Icon=utilities-terminal
-Exec=/usr/share/kali-menu/exec-in-shell python /usr/share/fbi/fbi.py
+Exec=/usr/share/kali-menu/exec-in-shell fbi
 Path=
 StartupNotify=false

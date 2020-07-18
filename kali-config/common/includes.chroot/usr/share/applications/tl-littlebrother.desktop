@@ -1,10 +1,11 @@
 [Desktop Entry]
-Name=sn0int
+Name=LittleBrother
 Comment=OSINT Framework
 Type=Application
-Icon=utilities-terminal
 Categories=08-frameworks
 Terminal=true
-Exec=/usr/share/kali-menu/exec-in-shell sudo /root/.cargo/bin/sn0int
+Icon=utilities-terminal
+Exec=/usr/share/kali-menu/exec-in-shell littlebrother
+
 Path=
 StartupNotify=false

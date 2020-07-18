@@ -7,8 +7,8 @@ logPath="squid_setup.log"
 exec &> >( tee -a $logPath)
 
 # Clone the Kali live-build and Tracelabs repositories 
-#git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-#git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
+git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
 
 kali_path="/opt/live-build-config"
 tl_path="/opt/tlosint-live"

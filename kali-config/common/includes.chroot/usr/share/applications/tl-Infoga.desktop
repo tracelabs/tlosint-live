@@ -5,6 +5,6 @@ Type=Application
 Terminal=true
 Icon=utilities-terminal
 Categories=02-email
-Exec=/usr/share/kali-menu/exec-in-shell python3 /usr/share/Infoga/infoga.py
+Exec=/usr/share/kali-menu/exec-in-shell infoga
 Path=
 StartupNotify=false

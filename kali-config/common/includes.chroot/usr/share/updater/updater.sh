@@ -3,12 +3,12 @@ tput setaf 5;echo "#################"
 tput setaf 5;echo "# OSINT Updater #"
 tput setaf 5;echo "#################"
 
-tput setaf 5;echo "[+] Updating system..."
-{
-        sudo apt update
-        sudo apt upgrade -y
-} 
-tput setaf 2;echo "[+] Done."
+# tput setaf 5;echo "[+] Updating system..."
+# {
+#        sudo apt update
+#        sudo apt upgrade -y
+# } 
+# tput setaf 2;echo "[+] Done."
 
 ###############
 

@@ -49,39 +49,39 @@ cd /usr/share/phoneinfoga
 tar xvf phoneinfoga_$(uname -s)_$(uname -m).tar.gz
 mv ./phoneinfoga /usr/bin/phoneinfoga
 
-git clone --recursive git://github.com/xHak9x/fbi.git /usr/share/fbi
+git clone --recursive https://github.com/xHak9x/fbi.git /usr/share/fbi
 cd /usr/share/fbi
 pip3 install -r requirements.txt
 
 pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 
-git clone --recursive git://github.com/hatlord/Spiderpig.git /usr/share/Spiderpig
+git clone --recursive https://github.com/hatlord/Spiderpig.git /usr/share/Spiderpig
 cd /usr/share/Spiderpig
 bundle install
 
-git clone --recursive git://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
+git clone --recursive https://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
 cd /usr/share/DumpsterDiver
 pip3 install -r requirements.txt
 
-git clone --recursive git://github.com/m4ll0k/Infoga.git /usr/share/Infoga
+git clone --recursive https://github.com/m4ll0k/Infoga.git /usr/share/Infoga
 cd /usr/share/Infoga
 python setup.py install
 
-git clone --recursive git://github.com/Lulz3xploit/LittleBrother /usr/share/LittleBrother
+git clone --recursive https://github.com/Lulz3xploit/LittleBrother /usr/share/LittleBrother
 cd /usr/share/LittleBrother
 pip3 install -r requirements.txt
 
-git clone --recursive git://github.com/am0nt31r0/OSINT-Search.git /usr/share/OSINT-Search
+git clone --recursive https://github.com/am0nt31r0/OSINT-Search.git /usr/share/OSINT-Search
 cd /usr/share/OSINT-Search
 pip3 install -r requirements.txt
 pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
 pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
 
-git clone --recursive git://github.com/aboul3la/Sublist3r.git /usr/share/Sublist3r
+git clone --recursive https://github.com/aboul3la/Sublist3r.git /usr/share/Sublist3r
 cd /usr/share/Sublist3r/
 pip3 install -r requirements.txt
 
-git clone --recursive git://github.com/kpcyrd/sn0int.git /usr/share/sn0int
+git clone --recursive https://github.com/kpcyrd/sn0int.git /usr/share/sn0int
 cd /usr/share/sn0int
 cargo install -f --path .
 export PATH=""/root/.cargo/bin:$PATH""
@@ -90,31 +90,31 @@ source ~/.bashrc
 pip3 install -U checkdmarc
 pip3 install -U git+https://github.com/domainaware/checkdmarc.git
 
-git clone --recursive git://github.com/s0md3v/Photon.git /usr/share/Photon
+git clone --recursive https://github.com/s0md3v/Photon.git /usr/share/Photon
 
-git clone --recursive git://github.com/sham00n/buster /usr/share/buster
+git clone --recursive https://github.com/sham00n/buster /usr/share/buster
 cd /usr/share/buster
 python3 setup.py install
 
-git clone --recursive git://github.com/Lazza/Carbon14 /usr/share/Carbon14
+git clone --recursive https://github.com/Lazza/Carbon14 /usr/share/Carbon14
 
-git clone --recursive git://github.com/sherlock-project/sherlock.git /usr/share/sherlock
+git clone --recursive https://github.com/sherlock-project/sherlock.git /usr/share/sherlock
 cd /usr/share/sherlock
 python3 -m pip install -r requirements.txt
 
-git clone --recursive git://github.com/guelfoweb/knock.git /usr/share/knock
+git clone --recursive https://github.com/guelfoweb/knock.git /usr/share/knock
 cd /usr/share/knock
 python setup.py install
 
-git clone --recursive git://github.com/bhavsec/reconspider /usr/share/reconspider
+git clone --recursive https://github.com/bhavsec/reconspider /usr/share/reconspider
 cd /usr/share/reconspider
 python3 setup.py install
 
-git clone --recursive git://github.com/thewhiteh4t/FinalRecon.git /usr/share/FinalRecon
+git clone --recursive https://github.com/thewhiteh4t/FinalRecon.git /usr/share/FinalRecon
 cd /usr/share/FinalRecon
 pip3 install -r requirements.txt
 
-git clone --recursive git://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
+git clone --recursive https://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
 cd /usr/share/WikiLeaker 
 chmod +x setup.sh
 #./setup.sh 2>&1 /dev/null

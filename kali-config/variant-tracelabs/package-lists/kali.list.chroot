@@ -22,8 +22,8 @@ open-vm-tools
 open-vm-tools-desktop
 
 # Docker
-docker.io
-docker
+#docker.io
+#docker
 
 # Git package pre-reqs
 git

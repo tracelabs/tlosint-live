@@ -196,3 +196,6 @@ tput setaf 2;echo "[+] Done."
 
 ############################
 
+echo "[+] Update System.."
+sudo apt update
+sudo apt upgrade -y

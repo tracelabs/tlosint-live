@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec sudo python3 /usr/share/osintS34rCh/osintS34rCh.py "$@"

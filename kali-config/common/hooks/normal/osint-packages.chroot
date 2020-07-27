@@ -116,16 +116,17 @@ cd /usr/share/FinalRecon
 pip3 install -r requirements.txt
 chmod +x /usr/bin/finalrecon
 
-git clone --recursive https://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
-cd /usr/share/WikiLeaker 
-chmod +x setup.sh
-./setup.sh 2>&1 /dev/null
-chmod +x /usr/bin/wikileaker
-
 git clone --recursive https://github.com/WebBreacher/WhatsMyName.git /usr/share/WhatsMyName
 cd /usr/share/WhatsMyName
 pip3 install -r requirements.txt
 chmod +x /usr/bin/whatsmyname
+
+git clone --recursive https://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
+cd /usr/share/WikiLeaker 
+chmod +x setup.sh
+./setup.sh 2>&1 /dev/null
+#chmod +x /usr/bin/wikileaker
+
 
 systemctl enable anbox-container-manager.service
 

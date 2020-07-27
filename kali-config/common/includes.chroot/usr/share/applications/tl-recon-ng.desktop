@@ -5,6 +5,6 @@ Icon=utilities-terminal
 StartupNotify=false
 Terminal=true
 Type=Application
-Categories=08-frameworks
+Categories=08-frameworks;
 Comment=Recon framework
-X-Kali-Package=recon-ng
+

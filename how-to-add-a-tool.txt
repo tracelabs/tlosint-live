@@ -1,0 +1,25 @@
+There are several places in this repo you will need to modify to add a new tool
+to this flavor of kali
+
+*** kali-config/common/hooks/normal/osint-packages.chroot ***
+
+Think of this file as the "install script" for all the additional tools.
+This will contain the instructions to get our tools installed. 
+Follow the examples in the file. 
+Normally: pull down git repo, install dependencies, move our helper script, make helper executable
+
+*** kali-config/common/includes.chroot/usr/share/applications/ ****
+
+This folder contains the information for menu icons.
+Follow the examples and add one for your new tool. 
+Essentially, these icons just kick off a helper script stored in /usr/bin
+
+
+*** kali-config/common/includes.chroot/usr/share/bin/ ***
+
+This folder contains the helper scripts that kick off our tools.
+You'll need to create one for the tool you are installing. 
+Follow the examples but essentially it's one line that runs your tool
+Note: All of these helper scripts will get moved to /usr/bin/ during the install process above
+
+

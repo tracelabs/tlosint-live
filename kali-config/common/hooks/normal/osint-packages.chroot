@@ -122,6 +122,10 @@ chmod +x setup.sh
 ./setup.sh 2>&1 /dev/null
 chmod +x /usr/bin/wikileaker
 
+git clone --recursive https://github.com/WebBreacher/WhatsMyName.git /usr/share/WhatsMyName
+cd /usr/share/WhatsMyName
+pip3 install -r requirements.txt
+chmod +x /usr/bin/whatsmyname
 
 systemctl enable anbox-container-manager.service
 

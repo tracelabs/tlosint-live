@@ -51,7 +51,7 @@ chmod +X /usr/bin/phoneinfoga
 git clone --recursive https://github.com/twintproject/twint.git /usr/share/Twint
 cd /usr/share/Twint
 pip3 install -r requirements.txt
-mv /usr/bin/share/twint /usr/bin/
+mv /usr/share/bin/twint /usr/bin/
 chmod +x /usr/bin/twint
 
 git clone --recursive https://github.com/hatlord/Spiderpig.git /usr/share/Spiderpig
@@ -142,7 +142,7 @@ chmod +x /usr/bin/whatsmyname
 git clone --recursive https://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
 cd /usr/share/WikiLeaker 
 pip3 install -r requirements.txt
-mv /usr/bin/share/wikileaker /usr/bin/
+mv /usr/share/bin/wikileaker /usr/bin/
 chmod +x /usr/bin/wikileaker
 
 

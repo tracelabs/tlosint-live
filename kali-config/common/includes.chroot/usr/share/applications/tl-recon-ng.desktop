@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=recon-ng
+Exec=/usr/share/kali-menu/exec-in-shell 'recon-ng --help'
+Icon=utilities-terminal
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=08-frameworks;
+Comment=Recon framework
+

@@ -1,0 +1,17 @@
+**** Fork the Trace Labs repo ****
+
+*** Clone your fork on to your machine ****
+
+*** Make changes *****
+
+*** Push changes to your repo ****
+
+*** Launch regular Kali in VM ****
+
+*** git clone the repo you just pushed to and cd to it ***
+
+*** modify the build script to pull from your repo, not the TL repo ****
+
+*** run build script ***
+
+*** test the resulting iso ****

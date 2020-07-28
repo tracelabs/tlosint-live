@@ -196,6 +196,22 @@ tput setaf 2;echo "[+] Done."
 
 ############################
 
+tput setaf 5;echo "[+] Updating WhatsMyName..."
+{
+        cd /usr/share/WhatsMyName
+        sudo git pull https://github.com/WebBreacher/WhatsMyName.git
+}
+tput setaf 2;echo "[+] Done."
+
+############################
+
+tput setaf 5;echo "[+] Updating WikiLeaker..."
+{
+        cd /usr/share/WikiLeaker
+        sudo git pull https://github.com/jocephus/WikiLeaker.git
+}
+tput setaf 2;echo "[+] Done."
+
 echo "[+] Update System.."
 sudo apt update
 sudo apt upgrade -y

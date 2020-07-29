@@ -2,7 +2,7 @@
 Name=CherryTree
 Comment=Hierarchical Note Taking
 Type=Application
-Categories=03-data-analysis
+Categories=07-note-taking
 Icon=cherrytree
 Exec=/usr/share/kali-menu/exec-in-shell cherrytree %f
 Path=

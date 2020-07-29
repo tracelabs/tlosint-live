@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Youtube-DL
 Comment=Launch Youtube-DL
-Exec=/usr/share/kali-menu/exec-in-shell youtube-dl --help
+Exec=/usr/share/kali-menu/exec-in-shell "youtube-dl --help"
 Terminal=true
 Categories=06-downloaders
 Icon=utilities-terminal

@@ -106,11 +106,11 @@
 
 
   <Menu>
-    <Name>Android Apps</Name>
-    <Directory>07-android-apps.directory</Directory>
+    <Name>Note Taking</Name>
+    <Directory>07-note-taking.directory</Directory>
     <Include>
       <And>
-        <Category>07-android-apps</Category>
+        <Category>07-note-taking</Category>
       </And>
     </Include>
   </Menu>

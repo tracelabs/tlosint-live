@@ -63,6 +63,8 @@ chmod +x /usr/bin/spiderpig
 git clone --recursive https://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
 cd /usr/share/DumpsterDiver
 pip3 install -r requirements.txt
+#dumpsterdiver writes error log to home folder
+chmod 757 /usr/share/DumpsterDiver
 mv /usr/share/bin/dumpsterdiver /usr/bin/
 chmod +x /usr/bin/dumpsterdiver
 

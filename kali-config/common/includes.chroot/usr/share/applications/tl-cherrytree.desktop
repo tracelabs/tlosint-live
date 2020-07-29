@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=CherryTree
+Comment=Hierarchical Note Taking
+Type=Application
+Categories=03-data-analysis
+Icon=cherrytree
+Exec=/usr/share/kali-menu/exec-in-shell cherrytree %f
+Path=
+Terminal=true
+StartupNotify=false

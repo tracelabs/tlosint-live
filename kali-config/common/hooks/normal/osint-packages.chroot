@@ -68,7 +68,7 @@ chmod +x /usr/bin/dumpsterdiver
 
 git clone --recursive https://github.com/m4ll0k/Infoga.git /usr/share/Infoga
 cd /usr/share/Infoga
-python setup.py install
+python3 setup.py install
 mv /usr/share/bin/infoga /usr/bin/
 chmod +x /usr/bin/infoga
 
@@ -82,7 +82,7 @@ git clone --recursive https://github.com/am0nt31r0/OSINT-Search.git /usr/share/O
 cd /usr/share/OSINT-Search
 pip3 install -r requirements.txt
 pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
-pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
+#pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
 mv /usr/share/bin/osintS34rCh /usr/bin/
 chmod +x /usr/bin/osintS34rCh
 

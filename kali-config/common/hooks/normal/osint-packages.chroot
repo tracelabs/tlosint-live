@@ -91,8 +91,8 @@ cd /usr/share/sn0int
 cargo install -f --path .
 export PATH=""/root/.cargo/bin:$PATH""
 source ~/.bashrc
-#mv /usr/share/bin/sn0int /usr/bin/
-#chmod +x /usr/bin/sn0int
+mv /usr/share/bin/sn0int /usr/bin/
+chmod +x /usr/bin/sn0int
 
 #pip3 install -U checkdmarc
 #pip3 install -U git+https://github.com/domainaware/checkdmarc.git

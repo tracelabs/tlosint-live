@@ -148,6 +148,5 @@ mv /usr/share/bin/wikileaker /usr/bin/
 chmod +x /usr/bin/wikileaker
 
 
-systemctl enable anbox-container-manager.service
 
 EOS

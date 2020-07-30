@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec python3 /usr/share/Twint/twint.py "$@"

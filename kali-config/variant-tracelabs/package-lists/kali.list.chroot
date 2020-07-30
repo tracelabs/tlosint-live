@@ -22,8 +22,8 @@ open-vm-tools
 open-vm-tools-desktop
 
 # Docker
-docker.io
-docker
+#docker.io
+#docker
 
 # Git package pre-reqs
 git
@@ -73,6 +73,8 @@ metagoofil
 eyewitness
 exifprobe
 ruby-bundler
+recon-ng
+cherrytree
 
 # Browsers
 chromium

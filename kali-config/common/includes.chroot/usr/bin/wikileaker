@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /usr/share/DumpsterDiver
+exec sudo python3 /usr/share/WikiLeaker/WikiLeaker.py "$@"

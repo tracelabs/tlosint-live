@@ -5,6 +5,6 @@ Type=Application
 Icon=utilities-terminal
 Categories=08-frameworks
 Terminal=true
-Exec=/usr/share/kali-menu/exec-in-shell sudo /root/.cargo/bin/sn0int
+Exec=/usr/share/kali-menu/exec-in-shell sn0int
 Path=
 StartupNotify=false

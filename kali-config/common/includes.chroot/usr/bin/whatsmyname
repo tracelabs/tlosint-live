@@ -1,0 +1,2 @@
+cd /usr/share/WhatsMyName
+exec sudo python3 /usr/share/WhatsMyName/check_online_presence.py "$@"

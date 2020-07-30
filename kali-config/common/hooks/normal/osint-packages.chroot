@@ -119,6 +119,6 @@ chmod +x setup.sh
 
 wget http://download.tracelabs.org/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf -O /home/kali/Desktop/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf
 
-mv /usr/share/updater/Updater.desktop /home/kali/Desktop
+#mv /usr/share/updater/Updater.desktop /home/kali/Desktop
 
 EOS

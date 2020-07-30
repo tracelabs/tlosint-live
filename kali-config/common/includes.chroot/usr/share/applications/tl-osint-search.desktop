@@ -5,6 +5,6 @@ Type=Application
 Terminal=true
 Categories=02-email;01-phone-numbers
 Icon=utilities-terminal
-Exec=/usr/share/kali-menu/exec-in-shell osintS34rCh
+Exec=/usr/share/kali-menu/exec-in-shell osintS34rCh -h
 Path=
 StartupNotify=false

@@ -63,12 +63,14 @@ chmod +x /usr/bin/spiderpig
 git clone --recursive https://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
 cd /usr/share/DumpsterDiver
 pip3 install -r requirements.txt
+#dumpsterdiver writes error log to home folder
+chmod 757 /usr/share/DumpsterDiver
 mv /usr/share/bin/dumpsterdiver /usr/bin/
 chmod +x /usr/bin/dumpsterdiver
 
 git clone --recursive https://github.com/m4ll0k/Infoga.git /usr/share/Infoga
 cd /usr/share/Infoga
-python setup.py install
+python3 setup.py install
 mv /usr/share/bin/infoga /usr/bin/
 chmod +x /usr/bin/infoga
 
@@ -82,7 +84,7 @@ git clone --recursive https://github.com/am0nt31r0/OSINT-Search.git /usr/share/O
 cd /usr/share/OSINT-Search
 pip3 install -r requirements.txt
 pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
-pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
+#pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
 mv /usr/share/bin/osintS34rCh /usr/bin/
 chmod +x /usr/bin/osintS34rCh
 
@@ -91,8 +93,9 @@ cd /usr/share/sn0int
 cargo install -f --path .
 export PATH=""/root/.cargo/bin:$PATH""
 source ~/.bashrc
-#mv /usr/share/bin/sn0int /usr/bin/
-#chmod +x /usr/bin/sn0int
+mv /usr/share/bin/sn0int /usr/bin/
+chmod +x /usr/bin/sn0int
+
 
 #pip3 install -U checkdmarc
 #pip3 install -U git+https://github.com/domainaware/checkdmarc.git
@@ -146,6 +149,5 @@ mv /usr/share/bin/wikileaker /usr/bin/
 chmod +x /usr/bin/wikileaker
 
 
-systemctl enable anbox-container-manager.service
 
 EOS

@@ -132,7 +132,7 @@ pip3 install -r requirements.txt
 chmod +x /usr/bin/wikileaker
 
 wget http://download.tracelabs.org/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf -O /etc/skel/Desktop/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf
-mv /usr/share/updater/Updater.desktop /etc/skel/Desktop
+
 
 
 EOS

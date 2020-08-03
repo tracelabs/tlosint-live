@@ -131,8 +131,6 @@ cd /usr/share/WikiLeaker
 pip3 install -r requirements.txt
 chmod +x /usr/bin/wikileaker
 
-wget http://download.tracelabs.org/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf -O /etc/skel/Desktop/Trace-Labs-OSINT-Search-Party-CTF-Contestant-Guide_v1.pdf
-
-
+chmod +x /usr/share/updater/updater.sh
 
 EOS

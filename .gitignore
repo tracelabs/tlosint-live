@@ -22,3 +22,4 @@ simple-cdd/tmp
 build.log
 squid.conf
 squid_setup.log
+.DS_Store

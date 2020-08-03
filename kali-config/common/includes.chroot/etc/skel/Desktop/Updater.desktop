@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Update
+Comment=
+Exec=/usr/share/updater/updater.sh
+Icon=/usr/share/updater/upgrade-icon.png
+Path=
+Terminal=true
+StartupNotify=false
+Name[en_US.utf8]=Updater

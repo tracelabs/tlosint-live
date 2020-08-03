@@ -44,7 +44,7 @@ mkdir -p /usr/share/phoneinfoga
 wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz
 cd /usr/share/phoneinfoga
 tar xvf phoneinfoga_$(uname -s)_$(uname -m).tar.gz
-chmod +X /usr/bin/phoneinfoga
+chmod +x /usr/bin/phoneinfoga
 
 git clone --recursive https://github.com/twintproject/twint.git /usr/share/Twint
 cd /usr/share/Twint
@@ -132,5 +132,5 @@ pip3 install -r requirements.txt
 chmod +x /usr/bin/wikileaker
 
 chmod +x /usr/share/updater/updater.sh
-
+chmod +x /etc/skel/Desktop/Updater.desktop
 EOS

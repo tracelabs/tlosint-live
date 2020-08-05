@@ -56,6 +56,7 @@ function internet_access {
 		(dmidecode | grep -iq virtual) && echo -e " [i] VM Detected"
 		(dmidecode | grep -iq virtual) && echo -e " [i] Try switching network adapter mode (e.g. NAT/Bridged)"
 		echo -e '[!]'" You will need to manually fix the issue, before re-running this script, trying anyway" 1>&2
+		tlosint-install
 	  fi
 	else
 	  echo -e " [i] Detected Internet access" 1>&2

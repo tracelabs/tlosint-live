@@ -66,6 +66,11 @@ function internet_access {
 
 ##### tlosint-live installation
 function tlosint-install {
+
+	##### Disabling the lockscreen
+	xset s 0 0
+    xset s off
+    gsettings set org.gnome.desktop.session idle-delay 0
 	
 	kali_path="/opt/live-build-config"
 	tl_path="/opt/tlosint-live"

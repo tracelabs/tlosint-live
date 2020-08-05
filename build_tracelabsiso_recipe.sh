@@ -104,7 +104,9 @@ function tlosint-install {
 		  #cd ~
 	    fi
 		
-		apt-get update -qq -y && apt-get upgrade -y && apt-get dist-upgrade -y
+		apt-get update -qq -y 
+		#apt-get upgrade -y
+		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
 		apt-get -qq install curl git live-build cdebootstrap squid -y

@@ -95,7 +95,8 @@ function tlosint-install {
 		  #wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  #wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get update -qq
-		  apt-get -qq install git live-build cdebootstrap debootstrap curl squid -y
+		  dpkg --configure -a
+		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
 		  #dpkg -i kali-archive-keyring_2020.2_all.deb
 		  #dpkg -i live-build_20191221kali4_all.deb
 		  #cd /usr/share/debootstrap/scripts/
@@ -105,6 +106,7 @@ function tlosint-install {
 	    fi
 		
 		apt-get update -qq -y 
+		dpkg --configure -a
 		#apt-get upgrade -y
 		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
@@ -137,7 +139,6 @@ function tlosint-install {
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
 		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
-		# `mkdir -p "$kali_path" && mkdir -p "$tl_path"`
 		tlosint-install
 	fi
 }

@@ -84,12 +84,15 @@ function tlosint-install {
 	  if [ -d "$tl_path" ]; then
 	    
 		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
+		  apt-get -qq install gnupg
+  		  wget -q 'https://archive.kali.org/archive-key.asc'
+		  apt-key add archive-key.asc
 		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
 		  
 		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
-		  apt-get update
-		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
+		  apt-get update -qq
+		  apt-get -qq install git live-build cdebootstrap debootstrap curl squid -y
 		  dpkg -i kali-archive-keyring_2020.2_all.deb
 		  dpkg -i live-build_20191221kali4_all.deb
 		  cd /usr/share/debootstrap/scripts/
@@ -98,10 +101,10 @@ function tlosint-install {
 		  cd ~
 	    fi
 		
-		apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
+		apt-get update -qq -y && apt-get upgrade -y && apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
-		apt-get install curl git live-build cdebootstrap squid -y
+		apt-get -qq install curl git live-build cdebootstrap squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
 		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf

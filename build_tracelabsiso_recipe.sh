@@ -11,8 +11,8 @@ exec &> >( tee -a $logPath)
 ##### Check if we are running as root - else this script will fail
 function root_check {	
 	if [[ "${EUID}" -ne 0 ]]; then
-	  echo -e " This script must be run as root" 1>&2
-	  echo -e " Quitting..." 1>&2
+	  echo -e "[!] This script must be run as root" 1>&2
+	  echo -e "[!] Quitting..." 1>&2
 	  exit 1
 	else
 	  internet_access
@@ -66,41 +66,40 @@ function internet_access {
 
 ##### tlosint-live installation
 function tlosint-install {
-	# Clone the Kali live-build and Tracelabs repositories 
-	git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-	git clone https://github.com/xFreed0m/tlosint-live.git /opt/tlosint-live
 	
 	kali_path="/opt/live-build-config"
 	tl_path="/opt/tlosint-live"
 	
-	if [ -d $kali_path ]
-	then
-		if [ -d $tl_path ]
-		then
-			apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
-			echo "Updates done ... "
+	if [ -d "$kali_path" ]; then
+	  if [ -d "$tl_path" ]; then
+	    apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
+		echo "[+] Updates done ... "
 
-			apt-get install curl git live-build cdebootstrap squid -y
-			echo "Live build pre-requisites installed ... "
+		apt-get install curl git live-build cdebootstrap squid -y
+		echo "[+] Live build pre-requisites installed ... "
 
-			wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
-			/etc/init.d/squid start
-			grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
-			echo "Squid set-up completed .... "
+		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
+		/etc/init.d/squid start
+		grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
+		echo "[+] Squid set-up completed .... "
 
-		# Copy all the files required for the Tracelabs ISO to the latest Kali live-build repo
-			cp -rv $tl_path/kali-config/variant-tracelabs/ $kali_path/kali-config/
-			cp -rv $tl_path/kali-config/common/hooks/normal $kali_path/kali-config/common/hooks/
-			cp -rv $tl_path/kali-config/common/includes.chroot/etc/* $kali_path/kali-config/common/includes.chroot/etc/
-			cp -rv $tl_path/kali-config/common/includes.chroot/usr/* $kali_path/kali-config/common/includes.chroot/usr/
+	    # Copy all the files required for the Tracelabs ISO to the latest Kali live-build repo
+		cp -rfv $tl_path/kali-config/variant-tracelabs/ $kali_path/kali-config/
+		cp -rfv $tl_path/kali-config/common/hooks/normal $kali_path/kali-config/common/hooks/
+		cp -rfv $tl_path/kali-config/common/includes.chroot/etc/* $kali_path/kali-config/common/includes.chroot/etc/
+		cp -rfv $tl_path/kali-config/common/includes.chroot/usr/* $kali_path/kali-config/common/includes.chroot/usr/
 
-			echo "Kali ISO build process starting ... "
-			$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
-		else
-			echo "Tracelabs path does not exist"
-		fi
+		echo "[+] Kali ISO build process starting ... "
+		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
+	  fi
+
 	else
-		echo "Kali live build path does not exist"
+		# Clone the Kali live-build and Tracelabs repositories 
+		echo "[+] tlosint-live & live-build-config directories not found, creating."
+		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
+		git clone https://github.com/xFreed0m/tlosint-live.git /opt/tlosint-live
+		# `mkdir -p "$kali_path" && mkdir -p "$tl_path"`
+		tlosint-install
 	fi
 }
 		

@@ -84,11 +84,20 @@ function tlosint-install {
 	  if [ -d "$tl_path" ]; then
 	    
 		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
+		  file=/etc/apt/sources.list; [ -e "${file}" ] && cp -n $file{,.bkup}
+		  ([[ -e "${file}" && "$(tail -c 1 ${file})" != "" ]]) && echo >> "${file}"
+		  #--- Main
+		  grep -q '^deb .* kali-rolling' "${file}" 2>/dev/null \
+		    || echo -e "\n# Kali Rolling\ndeb http://http.kali.org/kali kali-rolling main contrib non-free" >> "${file}"
+		  #--- Source
+		  grep -q '^deb-src .* kali-rolling' "${file}" 2>/dev/null \
+		    || echo -e "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> "${file}"
+		  
 		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
-		  dpkg -i kali-archive-keyring_2018.1_all.deb
-		  dpkg -i live-build_20180618kali1_all.deb
+		  dpkg -i kali-archive-keyring_2020.2_all.deb
+		  dpkg -i live-build_20191221kali4_all.deb
 		  cd /usr/share/debootstrap/scripts/
 		  (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > kali
 		  ln -s kali kali-rolling

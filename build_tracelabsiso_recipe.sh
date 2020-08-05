@@ -6,6 +6,9 @@
 export logPath="squid_setup.log"
 exec &> >( tee -a $logPath)
 
+##### Fix display output for GUI programs (when connecting via SSH)
+export DISPLAY=:0.0
+export TERM=xterm
 
 #sudo -s -- <<EOF
 ##### Check if we are running as root - else this script will fail
@@ -89,16 +92,16 @@ function tlosint-install {
 		  apt-key add archive-key.asc
 		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
 		  
-		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
-		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
+		  #wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
+		  #wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get update -qq
 		  apt-get -qq install git live-build cdebootstrap debootstrap curl squid -y
-		  dpkg -i kali-archive-keyring_2020.2_all.deb
-		  dpkg -i live-build_20191221kali4_all.deb
-		  cd /usr/share/debootstrap/scripts/
-		  (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > kali
-		  ln -s kali kali-rolling
-		  cd ~
+		  #dpkg -i kali-archive-keyring_2020.2_all.deb
+		  #dpkg -i live-build_20191221kali4_all.deb
+		  #cd /usr/share/debootstrap/scripts/
+		  #(echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > kali
+		  #ln -s kali kali-rolling
+		  #cd ~
 	    fi
 		
 		apt-get update -qq -y && apt-get upgrade -y && apt-get dist-upgrade -y

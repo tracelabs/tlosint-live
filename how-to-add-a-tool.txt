@@ -15,7 +15,7 @@ Follow the examples and add one for your new tool.
 Essentially, these icons just kick off a helper script stored in /usr/bin
 
 
-*** kali-config/common/includes.chroot/usr/share/bin/ ***
+*** kali-config/common/includes.chroot/usr/bin/ ***
 
 This folder contains the helper scripts that kick off our tools.
 You'll need to create one for the tool you are installing. 

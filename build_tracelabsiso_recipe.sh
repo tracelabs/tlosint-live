@@ -112,7 +112,10 @@ function tlosint-install {
 		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
-		apt-get -qq install curl git live-build cdebootstrap squid -y
+		apt-get -qq install curl git -y
+		apt-get -qq install live-build -y
+		apt-get -qq install cdebootstrap -y
+		apt-get -qq install squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
 		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf

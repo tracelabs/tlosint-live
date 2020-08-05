@@ -84,8 +84,8 @@ function tlosint-install {
 	  if [ -d "$tl_path" ]; then
 	    
 		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
-		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
-		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20180618kali1_all.deb
+		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
+		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
 		  dpkg -i kali-archive-keyring_2018.1_all.deb
 		  dpkg -i live-build_20180618kali1_all.deb

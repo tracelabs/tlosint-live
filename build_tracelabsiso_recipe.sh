@@ -90,13 +90,13 @@ function tlosint-install {
 		  apt-get -qq install gnupg
   		  wget -q 'https://archive.kali.org/archive-key.asc'
 		  apt-key add archive-key.asc
-		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
+		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 		  
 		  #wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  #wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get update -qq
 		  dpkg --configure -a
-		  apt-get install curl git live-build cdebootstrap  squid -y
+		  #apt-get install curl git live-build cdebootstrap  squid -y
 		  #dpkg -i kali-archive-keyring_2020.2_all.deb
 		  #dpkg -i live-build_20191221kali4_all.deb
 		  #cd /usr/share/debootstrap/scripts/

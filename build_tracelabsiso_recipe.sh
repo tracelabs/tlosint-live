@@ -78,7 +78,7 @@ function tlosint-install {
 	if [ -d "$kali_path" ]; then
 	
 		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-		sed -i 's/"exit 1"/"exit 0/g' /opt/live-build-config/build.sh
+		sed -i 's/"exit 1"/"exit 0"/g' /opt/live-build-config/build.sh
 		
 	  if [ -d "$tl_path" ]; then
 	    apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -106,7 +106,7 @@ function tlosint-install {
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone https://github.com/xFreed0m/tlosint-live.git /opt/tlosint-live
+		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
 		# `mkdir -p "$kali_path" && mkdir -p "$tl_path"`
 		tlosint-install
 	fi

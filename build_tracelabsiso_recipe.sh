@@ -66,7 +66,11 @@ function internet_access {
 
 ##### tlosint-live installation
 function tlosint-install {
+	
+	##### OS Version
+	OS_VERSION=$(cat /etc/issue)
 
+	
 	##### Disabling the lockscreen
 	xset s 0 0
     xset s off
@@ -79,7 +83,7 @@ function tlosint-install {
 		
 	  if [ -d "$tl_path" ]; then
 	    
-		if NOTKALI; then
+		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
 		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
 		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20180618kali1_all.deb
 		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
@@ -94,7 +98,7 @@ function tlosint-install {
 		apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
-		#apt-get install curl git live-build cdebootstrap squid -y
+		apt-get install curl git live-build cdebootstrap squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
 		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf

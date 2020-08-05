@@ -92,12 +92,12 @@ function tlosint-install {
 		  apt-key add archive-key.asc
 		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 		  
-		  #wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
+		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  #wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get update -qq
 		  dpkg --configure -a
 		  #apt-get install curl git live-build cdebootstrap  squid -y
-		  #dpkg -i kali-archive-keyring_2020.2_all.deb
+		  dpkg -i kali-archive-keyring_2020.2_all.deb
 		  #dpkg -i live-build_20191221kali4_all.deb
 		  #cd /usr/share/debootstrap/scripts/
 		  #(echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > kali
@@ -112,10 +112,10 @@ function tlosint-install {
 		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
-		apt-get -qq install curl git -y
-		apt-get -qq install live-build -y
-		apt-get -qq install cdebootstrap -y
-		apt-get -qq install squid -y
+		apt-get install curl git -y
+		apt-get install live-build -y
+		apt-get install cdebootstrap -y
+		apt-get install squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
 		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf

@@ -96,7 +96,7 @@ function tlosint-install {
 		  #wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20191221kali4_all.deb
 		  apt-get update -qq
 		  dpkg --configure -a
-		  apt-get install git live-build cdebootstrap debootstrap curl squid -y
+		  apt-get install curl git live-build cdebootstrap  squid -y
 		  #dpkg -i kali-archive-keyring_2020.2_all.deb
 		  #dpkg -i live-build_20191221kali4_all.deb
 		  #cd /usr/share/debootstrap/scripts/
@@ -107,6 +107,7 @@ function tlosint-install {
 		
 		apt-get update -qq -y 
 		dpkg --configure -a
+		apt --fix-broken install
 		#apt-get upgrade -y
 		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "

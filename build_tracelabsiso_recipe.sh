@@ -77,8 +77,10 @@ function tlosint-install {
 	
 	if [ -d "$kali_path" ]; then
 	
-		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-		sed -i 's/"exit 1"/"exit 0"/g' /opt/live-build-config/build.sh
+	  ##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
+	  sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
+	  sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
+	  sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		
 	  if [ -d "$tl_path" ]; then
 	    apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y

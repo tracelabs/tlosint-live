@@ -78,10 +78,23 @@ function tlosint-install {
 	if [ -d "$kali_path" ]; then
 		
 	  if [ -d "$tl_path" ]; then
-	    apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
+	    
+		if NOTKALI; then
+		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
+		  wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20180618kali1_all.deb
+		  apt -y install git live-build cdebootstrap debootstrap curl squid -y
+		  dpkg -i kali-archive-keyring_2018.1_all.deb
+		  dpkg -i live-build_20180618kali1_all.deb
+		  cd /usr/share/debootstrap/scripts/
+		  (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > kali
+		  ln -s kali kali-rolling
+		  cd ~
+	    fi
+		
+		apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
-		apt-get install curl git live-build cdebootstrap squid -y
+		#apt-get install curl git live-build cdebootstrap squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
 		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
@@ -97,10 +110,10 @@ function tlosint-install {
 
 		echo "[+] Kali ISO build process starting ... "
 		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-		sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
+		#sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
-		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
-		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
+		#sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
+		#sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
 	  fi
 

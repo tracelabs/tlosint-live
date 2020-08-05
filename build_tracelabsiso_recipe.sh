@@ -76,11 +76,6 @@ function tlosint-install {
 	tl_path="/opt/tlosint-live"
 	
 	if [ -d "$kali_path" ]; then
-	
-	  ##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-	  sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
-	  sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
-	  sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		
 	  if [ -d "$tl_path" ]; then
 	    apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -101,6 +96,10 @@ function tlosint-install {
 		cp -rfv $tl_path/kali-config/common/includes.chroot/usr/* $kali_path/kali-config/common/includes.chroot/usr/
 
 		echo "[+] Kali ISO build process starting ... "
+		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
+		sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
+		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
+		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
 	  fi
 

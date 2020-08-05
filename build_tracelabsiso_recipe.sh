@@ -10,7 +10,7 @@ exec &> >( tee -a $logPath)
 export DISPLAY=:0.0
 export TERM=xterm
 
-#sudo -s -- <<EOF
+
 ##### Check if we are running as root - else this script will fail
 function root_check {	
 	if [[ "${EUID}" -ne 0 ]]; then

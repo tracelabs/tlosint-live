@@ -55,8 +55,7 @@ function internet_access {
 	  if [[ "$_TMP" == "false" ]]; then
 		(dmidecode | grep -iq virtual) && echo -e " [i] VM Detected"
 		(dmidecode | grep -iq virtual) && echo -e " [i] Try switching network adapter mode (e.g. NAT/Bridged)"
-		echo -e '[!]'" Quitting..." 1>&2
-		exit 1
+		echo -e '[!]'" You will need to manually fix the issue, before re-running this script, trying anyway" 1>&2
 	  fi
 	else
 	  echo -e " [i] Detected Internet access" 1>&2

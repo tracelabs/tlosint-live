@@ -114,10 +114,10 @@ function tlosint-install {
 
 		echo "[+] Kali ISO build process starting ... "
 		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-		#sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
+		sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
-		#sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
-		#sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
+		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
+		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
 	  fi
 

@@ -24,16 +24,11 @@ sudo wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/master/b
 If the build process is successful, a .iso file will be created in the `/opt/live-build-config/images` directory. The .iso file can be used for live boot or to install the Virtual Machine. The .iso file can also be converted to a .ova file using the `ovftool` as outlined in the "Converting to an OVA" page (https://www.kali.org/docs/virtualization/converting-to-ova/).
 
 ## OVA Download
-We have set up Version 1.0 of this build in an OVA for you to easily try out. To get started, download the OVA file via the link below and run it in your choice of VM software (ie. VMware Workstation, Virtualbox etc.). The default credentials to log in to the TL OSINT VM are **kali:kali**
+We have set up Version 1.0 of this build in an OVA for you to easily try out. To get started, download the OVA file via the link below and run it in your choice of VM software (ie. VMware Workstation, Virtualbox etc.). The default credentials to log in to the TL OSINT VM are **osint:osint**
 
-http://download.tracelabs.org/TL-OSINT-2020.1.ova 
-
-**SHA256 Hash:** 96AD609A0737BD1A28E1079B6B0B5CADFF2380D481B6932EF643B3BB12EB67AE
+https://www.tracelabs.org/trace-labs-osint-vm/
 
 ## Applications included in the build 
-
-**Android Apps**
-* Anbox
 
 **Browsers**
 * Chromium Web Browser
@@ -73,7 +68,6 @@ http://download.tracelabs.org/TL-OSINT-2020.1.ova
 * PhoneInfoga
 
 **Social Media**
-* FBI
 * Instaloader
 * Twint
 
@@ -85,7 +79,6 @@ http://download.tracelabs.org/TL-OSINT-2020.1.ova
 * Photon
 * Carbon14
 * Sherlock
-* skiptracer
 * h8mail
 * Shodan
 * Wireshark

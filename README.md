@@ -3,6 +3,7 @@
 ## Overview
 The repository includes a recipe file to build a Linux OSINT Distribution for Trace Labs based on the Kali Linux live-build-config (https://gitlab.com/kalilinux/build-scripts/live-build-config/-/tree/master).
 
+![alt text](https://github.com/tracelabs/tlosint-live/blob/master/image.png?raw=true "Tracelabs kali desktop")
 
 The following changes have been made to the default Kali git repo:
 * Creation of a folder for Tracelabs under the `kali-config/variant-tracelabs/package-lists/kali-list.chroot` path. The `kali-list.chroot` can be modified to add additional packages or remove pre-configured packages that are required as part of the build process. 

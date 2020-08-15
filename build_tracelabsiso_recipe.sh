@@ -135,7 +135,8 @@ function tlosint-install {
 		apt-get remove -qq squid -y
 		rm -f /etc/squid/squid.conf
 		rm -f kali-archive-keyring_2020.2_all.deb
-		cat /etc/apt/sources.list.orig > /etc/apt/sources.list 
+		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
+		rm -f /etc/apt/sources.list.orig
 	  fi
 
 	else

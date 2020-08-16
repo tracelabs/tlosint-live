@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 
 # Log output to STDOUT and to a file.
 export logPath="squid_setup.log"

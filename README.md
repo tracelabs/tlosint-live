@@ -19,7 +19,7 @@ The following changes have been made to the default Kali git repo:
 ### Setup
 This build has only been tested on a pre-existing Kali environment, as recommended by Offensive Security. 
 ```
-sudo wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/master/build_tracelabsiso_recipe.sh | bash
+sudo wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/master/build_tracelabsiso_recipe.sh | sudo bash
 ```
 If the build process is successful, a .iso file will be created in the `/opt/live-build-config/images` directory. The .iso file can be used for live boot or to install the Virtual Machine. The .iso file can also be converted to a .ova file using the `ovftool` as outlined in the "Converting to an OVA" page (https://www.kali.org/docs/virtualization/converting-to-ova/).
 

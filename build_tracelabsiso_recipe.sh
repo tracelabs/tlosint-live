@@ -112,10 +112,10 @@ function tlosint-install {
 		apt-get install squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
-		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
-		/etc/init.d/squid start
-		grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
-		echo "[+] Squid set-up completed .... "
+		#wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
+		#/etc/init.d/squid start
+		#grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
+		#echo "[+] Squid set-up completed .... "
 
 	    # Copy all the files required for the Tracelabs ISO to the latest Kali live-build repo
 		cp -rfv $tl_path/kali-config/variant-tracelabs/ $kali_path/kali-config/
@@ -129,11 +129,12 @@ function tlosint-install {
 		sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
-		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
+		$kali_path/build.sh --verbose --variant tracelabs
+		#-- --apt-http-proxy=${http_proxy}
 		
 		##### Cleanup
-		apt-get remove -qq squid -y
-		rm -f /etc/squid/squid.conf
+		#apt-get remove -qq squid -y
+		#rm -f /etc/squid/squid.conf
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig

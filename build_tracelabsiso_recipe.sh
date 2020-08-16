@@ -2,7 +2,7 @@
 
 
 # Log output to STDOUT and to a file.
-export logPath="squid_setup.log"
+#export logPath="squid_setup.log"
 exec &> >( tee -a $logPath)
 
 ##### Fix display output for GUI programs (when connecting via SSH)
@@ -32,9 +32,9 @@ function internet_access {
 	  chattr -i /etc/resolv.conf 2>/dev/null
 	  dhclient -r
 	  #--- Second interface causing issues?
-	  ip addr show eth1 &>/dev/null
-	  [[ "$?" == 0 ]] \
-		&& route delete default gw 192.168.155.1 2>/dev/null
+#	  ip addr show eth1 &>/dev/null
+#	  [[ "$?" == 0 ]] \
+#		&& route delete default gw 192.168.155.1 2>/dev/null
 	  #--- Request a new IP
 	  dhclient
 	  dhclient eth0 2>/dev/null
@@ -74,9 +74,9 @@ function tlosint-install {
 
 	
 	##### Disabling the lockscreen
-	xset s 0 0
-    xset s off
-    gsettings set org.gnome.desktop.session idle-delay 0
+	#xset s 0 0
+    	#xset s off
+    	#gsettings set org.gnome.desktop.session idle-delay 0
 	
 	kali_path="/opt/live-build-config"
 	tl_path="/opt/tlosint-live"
@@ -89,6 +89,7 @@ function tlosint-install {
 		  apt-get -qq install gnupg
   		  wget -q 'https://archive.kali.org/archive-key.asc'
 		  apt-key add archive-key.asc
+		  cat /etc/apt/sources.list > /etc/apt/sources.list.orig
 		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 		  
 		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
@@ -101,20 +102,18 @@ function tlosint-install {
 		apt-get update -qq -y 
 		dpkg --configure -a
 		apt --fix-broken install
-		#apt-get upgrade -y
-		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
 		apt-get install curl git -y
 		apt-get install live-build -y
 		apt-get install cdebootstrap -y
-		apt-get install squid -y
+		#apt-get install squid -y
 		echo "[+] Live build pre-requisites installed ... "
 
-		wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
-		/etc/init.d/squid start
-		grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
-		echo "[+] Squid set-up completed .... "
+		#wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
+		#/etc/init.d/squid start
+		#grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
+		#echo "[+] Squid set-up completed .... "
 
 	    # Copy all the files required for the Tracelabs ISO to the latest Kali live-build repo
 		cp -rfv $tl_path/kali-config/variant-tracelabs/ $kali_path/kali-config/
@@ -128,7 +127,14 @@ function tlosint-install {
 		sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
-		$kali_path/build.sh --verbose --variant tracelabs -- --apt-http-proxy=${http_proxy}
+		$kali_path/build.sh --verbose --variant tracelabs --
+		
+		##### Cleanup
+		#apt-get remove -qq squid -y
+		#rm -f /etc/squid/squid.conf
+		rm -f kali-archive-keyring_2020.2_all.deb
+		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
+		rm -f /etc/apt/sources.list.orig
 	  fi
 
 	else

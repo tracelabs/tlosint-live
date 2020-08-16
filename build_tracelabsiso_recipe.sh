@@ -90,7 +90,7 @@ function tlosint-install {
   		  wget -q 'https://archive.kali.org/archive-key.asc'
 		  apt-key add archive-key.asc
 		  cat /etc/apt/sources.list > /etc/apt/sources.list.orig
-		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
+		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
 		  
 		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
 		  apt-get update -qq

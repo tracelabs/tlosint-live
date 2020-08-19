@@ -56,6 +56,7 @@ https://www.tracelabs.org/trace-labs-osint-vm/
 * Infoga
 * OSINT-Search
 * theHarvester
+* h8mail
 
 **Frameworks**
 * Little Brother
@@ -79,7 +80,6 @@ https://www.tracelabs.org/trace-labs-osint-vm/
 * Photon
 * Carbon14
 * Sherlock
-* h8mail
 * Shodan
 * Wireshark
 

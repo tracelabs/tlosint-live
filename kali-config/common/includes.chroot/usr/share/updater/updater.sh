@@ -4,8 +4,8 @@ tput setaf 5;echo "# OSINT Updater #"
 tput setaf 5;echo "#################"
 
 echo "[+] Update System.."
-sudo apt update
-sudo apt upgrade -y
+sudo apt update -qq
+sudo apt upgrade -qq -y
 
 tput setaf 5;echo "[+] Updating youtube-dl..."
 {

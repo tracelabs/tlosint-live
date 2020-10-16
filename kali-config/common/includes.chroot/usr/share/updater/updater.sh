@@ -43,6 +43,7 @@ tput setaf 5;echo "[+] Updating PhoneInfoga..."
         if [ -d "/usr/share/phoneinfoga" ]; then        
 	
 		cd /usr/share/phoneinfoga
+		sudo git init
         	sudo git pull https://github.com/sundowndev/PhoneInfoga.git --rebase
 	else
 		sudo git clone https://github.com/sundowndev/PhoneInfoga.git /usr/share/phoneinfoga
@@ -99,6 +100,7 @@ tput setaf 5;echo "[+] Updating Sherlock..."
         if [ -d "/usr/share/sherlock" ]; then        
 	
 		cd /usr/share/sherlock
+		sudo git init
         	sudo git pull https://github.com/sherlock-project/sherlock.git --rebase
 	else
 		sudo git clone https://github.com/sherlock-project/sherlock /usr/share/sherlock
@@ -129,6 +131,7 @@ tput setaf 5;echo "[+] Updating Metagoofil..."
 	if [ -d "/usr/share/metagoofil" ]; then        
 	
 		cd /usr/share/metagoofil
+		sudo git init
         	sudo git pull https://github.com/opsdisk/metagoofil.git --rebase
 	else
 		sudo git clone https://github.com/opsdisk/metagoofil /usr/share/metagoofil
@@ -175,7 +178,7 @@ tput setaf 5;echo "[+] Updating sn0int..."
 	
 		cd /usr/share/sn0int
         	sudo git pull https://github.com/kpcyrd/sn0int.git --rebase
-        	cargo install -f --path .
+        	sudo cargo install -f --path .
 	else
 		sudo git clone https://github.com/kpcyrd/sn0int /usr/share/sn0int
 	fi

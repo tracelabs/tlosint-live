@@ -99,10 +99,8 @@ tput setaf 5;echo "[+] Updating OSINT-Search..."
 {
         cd /usr/share/OSINT-Search
         sudo git pull https://github.com/am0nt31r0/OSINT-Search.git
-        sudo pip3 install git+https://github.com/abenassi/Google-Search-API
- --upgrade
-        sudo pip3 install https://github.com/PaulSec/API-dnsdumpster.com/ar
-chive/master.zip --user
+        sudo pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
+        sudo pip3 install https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
 } 
 tput setaf 2;echo "[+] Done."
 

@@ -16,6 +16,18 @@ The following changes have been made to the default Kali git repo:
 
 ## Build Steps
 
+## Buildilng the ISO file on Docker
+You will need a host\vm with Docker-engine installed. Installation guide can be found here: https://docs.docker.com/engine/install/
+Once you have docker install, you just need to run:
+```
+docker pull freed0m/tlosint-vm
+docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
+```
+Once the docker container will finish running, you will be able to locate the ISO file inside a folder named "data" in the location you ran the commands.
+Now you can use the ISO file to install the tlosint vm.
+
+## Building the ISO file on your Debian host or Debian VM
+
 ### Setup
 This build has only been tested on a pre-existing Kali environment, as recommended by Offensive Security. 
 ```

@@ -117,10 +117,15 @@ tput setaf 2;echo "[+] Done."
 
 
 tput setaf 5;echo "[+] Updating sn0int..."
+# RS - The instructions below are for CentOS install, not debian - https://sn0int.readthedocs.io/en/latest/install.html#debian-ubuntu-kali
+#{
+#        cd /usr/share/sn0int
+#        sudo git pull https://github.com/kpcyrd/sn0int.git
+#        cargo install -f --path .
+#} 
 {
-        cd /usr/share/sn0int
-        sudo git pull https://github.com/kpcyrd/sn0int.git
-        cargo install -f --path .
+        apt upgrade -y sn0int
+
 } 
 tput setaf 2;echo "[+] Done."
 

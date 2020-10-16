@@ -3,6 +3,9 @@ tput setaf 5;echo "#################"
 tput setaf 5;echo "# OSINT Updater #"
 tput setaf 5;echo "#################"
 
+echo "[+] Update System.."
+sudo apt update
+sudo apt upgrade -y
 
 tput setaf 5;echo "[+] Updating youtube-dl..."
 {
@@ -124,7 +127,7 @@ tput setaf 5;echo "[+] Updating sn0int..."
 #        cargo install -f --path .
 #} 
 {
-        apt upgrade -y sn0int
+        sudo apt upgrade -y sn0int
 
 } 
 tput setaf 2;echo "[+] Done."
@@ -157,7 +160,3 @@ tput setaf 5;echo "[+] Updating WikiLeaker..."
         sudo git pull https://github.com/jocephus/WikiLeaker.git
 }
 tput setaf 2;echo "[+] Done."
-
-echo "[+] Update System.."
-sudo apt update
-sudo apt upgrade -y

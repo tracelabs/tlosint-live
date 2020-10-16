@@ -35,7 +35,7 @@ build-essential
 python2.7-dev
 #python-openssl
 python2
-python-pip
+#python-pip
 curl
 #python-dnspython
 python-argparse

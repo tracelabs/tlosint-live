@@ -26,7 +26,7 @@ If the build process is successful, a .iso file will be created in the `/opt/liv
 ## OVA Download
 We have set up Version 1.0 of this build in an OVA for you to easily try out. To get started, download the OVA file via the link below and run it in your choice of VM software (ie. VMware Workstation, Virtualbox etc.). The default credentials to log in to the TL OSINT VM are **osint:osint**
 
-https://www.tracelabs.org/trace-labs-osint-vm/
+https://www.tracelabs.org/initiatives/osint-vm
 
 ## Applications included in the build 
 

@@ -21,10 +21,6 @@ kali-desktop-xfce
 open-vm-tools
 open-vm-tools-desktop
 
-# Docker
-#docker.io
-#docker
-
 # Git package pre-reqs
 git
 golang
@@ -33,11 +29,9 @@ python3-pip
 python-dev
 build-essential
 python2.7-dev
-#python-openssl
 python2
 python-pip
 curl
-#python-dnspython
 python-argparse
 build-essential
 libsqlite3-dev
@@ -66,7 +60,6 @@ theharvester
 webhttrack
 outguess
 stegosuite
-#anbox
 wireshark
 openvpn
 metagoofil
@@ -84,11 +77,3 @@ shodan
 chromium
 torbrowser-launcher
 tor
-firefox-esr
-
-#browser extensions
-webext-https-everywhere
-webext-browserpass
-webext-ublock-origin
-webext-privacy-badger
-webext-bulk-media-downloader

@@ -106,11 +106,17 @@
 
 
   <Menu>
-    <Name>Note Taking</Name>
+    <Name>Reporting Tools</Name>
     <Directory>07-note-taking.directory</Directory>
     <Include>
       <And>
+        <Category>TextEditor</Category>
+      </And>
+      <And>
         <Category>07-note-taking</Category>
+      </And>
+      <And>
+          <Category>Graphics</Category>
       </And>
     </Include>
   </Menu>

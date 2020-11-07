@@ -3,9 +3,13 @@ tput setaf 5;echo "#################"
 tput setaf 5;echo "# OSINT Updater #"
 tput setaf 5;echo "#################"
 
-echo "[+] Update System.."
-sudo apt update -qq
+echo "[+] Update + Upgrade System.."
+sudo apt update -qq 
 sudo apt upgrade -qq -y
+
+echo "[+] Upgrading Kali version to latest..."
+sudo apt dist-upgrade -qq -y
+sudo apt full-upgrade -qq -y
 
 tput setaf 5;echo "[+] Updating youtube-dl..."
 {

@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Check if Git tag exists
         #run: echo "::set-env name=HEAD_TAG::$(git tag --points-at HEAD)"
-        run: echo "HEAD_TAG=$(git tag --points-at HEAD)" >> $GITHUB_ENV
+        run: echo >>$GITHUB_ENV HEAD_TAG="$(git tag --points-at HEAD)" 
       - name: Runs only if Git tag exists
         run: echo "This runs because Git tag points at HEAD ..."
         if: env.HEAD_TAG != ''        

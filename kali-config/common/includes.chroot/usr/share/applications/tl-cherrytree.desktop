@@ -6,5 +6,5 @@ Categories=07-note-taking
 Icon=cherrytree
 Exec=/usr/share/kali-menu/exec-in-shell cherrytree %f
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=false

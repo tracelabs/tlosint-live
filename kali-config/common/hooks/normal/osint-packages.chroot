@@ -75,13 +75,6 @@ cd /usr/share/LittleBrother
 pip3 install -r requirements.txt
 chmod +x /usr/bin/littlebrother
 
-git clone --recursive https://github.com/am0nt31r0/OSINT-Search.git /usr/share/OSINT-Search
-cd /usr/share/OSINT-Search
-pip3 install -r requirements.txt
-pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
-#pip3 install git+https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
-chmod +x /usr/bin/osintS34rCh
-
 git clone --recursive https://github.com/kpcyrd/sn0int.git /usr/share/sn0int
 cd /usr/share/sn0int
 cargo install -f --path .

@@ -54,6 +54,7 @@ https://www.tracelabs.org/initiatives/osint-vm
 * Stegosuite
 
 **Domains**
+* Domainfy (OSRFramework)
 * Sublist3r
 
 **Downloaders**
@@ -65,25 +66,32 @@ https://www.tracelabs.org/initiatives/osint-vm
 
 **Email**
 * Buster
+* Checkfy (OSRFramework)
 * Infoga
+* Mailfy (OSRFramework)
 * theHarvester
 * h8mail
 
 **Frameworks**
 * Little Brother
+* OSRFramework
 * sn0int
 * Spiderfoot
 * Maltego
 
 **Phone Numbers**
+* Phonefy (OSRFramework)
 * PhoneInfoga
 
 **Social Media**
 * Instaloader
 * Twint
+* Searchfy (OSRFramework)
 
 **Usernames**
+* Alias Generator (OSRFramework)
 * Sherlock
+* Usufy (OSRFramework)
 
 **Other tools
 * Photon

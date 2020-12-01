@@ -228,3 +228,16 @@ tput setaf 5;echo "[+] Updating WikiLeaker..."
 	fi
 }
 tput setaf 2;echo "[+] Done."
+
+############################
+
+tput setaf 5; echo "[+] Updating OSRFramework..."
+{
+  if [ -d "/usr/share/osrframework" ]; then
+    cd /usr/share/osrframework
+    sudo git pull https://github.com/i3visio/osrframework --rebase
+  else
+    sudo git clone https://github.com/i3visio/osrframework /usr/share/osrframework
+  fi
+}
+tput setaf 2;echo "[+] Done."

@@ -78,7 +78,6 @@ https://www.tracelabs.org/initiatives/osint-vm
 * sn0int
 * Spiderfoot
 * Maltego
-* osrframework
 
 **Phone Numbers**
 * Phonefy (OSRFramework)

@@ -78,10 +78,3 @@ chromium
 torbrowser-launcher
 tor
 firefox-esr
-
-#browser extensions
-webext-https-everywhere
-webext-browserpass
-webext-ublock-origin
-webext-privacy-badger
-webext-bulk-media-downloader

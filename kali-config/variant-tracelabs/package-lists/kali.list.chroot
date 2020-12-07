@@ -30,7 +30,7 @@ python-dev
 build-essential
 python2.7-dev
 python2
-#python-pip
+python-pip
 curl
 python-argparse
 build-essential
@@ -50,8 +50,6 @@ sqlite3-doc
 ruby-dev
 libpq-dev
 python-dev
-nodejs
-npm
 
 # Custom tools
 spiderfoot
@@ -73,10 +71,9 @@ cherrytree
 instaloader
 photon
 sublist3r
-osrframework
+joplin
 
 # Browsers
 chromium
 torbrowser-launcher
 tor
-firefox-esr

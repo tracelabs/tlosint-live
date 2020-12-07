@@ -87,6 +87,7 @@ https://www.tracelabs.org/initiatives/osint-vm
 * Instaloader
 * Twint
 * Searchfy (OSRFramework)
+* Tiktok Scraper
 
 **Usernames**
 * Alias Generator (OSRFramework)

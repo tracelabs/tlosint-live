@@ -51,6 +51,7 @@ ruby-dev
 libpq-dev
 python-dev
 nodejs
+npm
 
 # Custom tools
 spiderfoot

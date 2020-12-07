@@ -6,6 +6,8 @@ tput setaf 5;echo "#################"
 echo "[+] Update System.."
 sudo apt update -qq
 sudo apt upgrade -qq -y
+sudo npm install npm@latest -g
+sudo npm update -g
 
 tput setaf 5;echo "[+] Updating youtube-dl..."
 {

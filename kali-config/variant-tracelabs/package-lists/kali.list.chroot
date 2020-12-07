@@ -50,6 +50,8 @@ sqlite3-doc
 ruby-dev
 libpq-dev
 python-dev
+nodejs
+npm
 
 # Custom tools
 spiderfoot

@@ -3,7 +3,7 @@
 ## Overview
 The repository includes a recipe file to build a Linux OSINT Distribution for Trace Labs based on the Kali Linux live-build-config (https://gitlab.com/kalilinux/build-scripts/live-build-config/-/tree/master).
 
-![alt text](https://github.com/tracelabs/tlosint-live/blob/master/image.png?raw=true "Tracelabs kali desktop")
+![image](https://user-images.githubusercontent.com/23207476/99865509-235c4500-2bfa-11eb-89fe-70d6685e1454.png)
 
 The following changes have been made to the default Kali git repo:
 * Creation of a folder for Tracelabs under the `kali-config/variant-tracelabs/package-lists/kali-list.chroot` path. The `kali-list.chroot` can be modified to add additional packages or remove pre-configured packages that are required as part of the build process. 
@@ -16,6 +16,18 @@ The following changes have been made to the default Kali git repo:
 
 ## Build Steps
 
+## Building the ISO file on Docker
+You will need a host\vm with Docker-engine installed. Installation guide can be found here: https://docs.docker.com/engine/install/
+Once you have docker install, you just need to run:
+```
+docker pull freed0m/tlosint-vm
+docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
+```
+Once the docker container will finish running, you will be able to locate the ISO file inside a folder named "data" in the location you ran the commands.
+Now you can use the ISO file to install the tlosint vm.
+
+## Building the ISO file on your Debian host or Debian VM
+
 ### Setup
 This build has only been tested on a pre-existing Kali environment, as recommended by Offensive Security. 
 ```
@@ -26,7 +38,7 @@ If the build process is successful, a .iso file will be created in the `/opt/liv
 ## OVA Download
 We have set up Version 1.0 of this build in an OVA for you to easily try out. To get started, download the OVA file via the link below and run it in your choice of VM software (ie. VMware Workstation, Virtualbox etc.). The default credentials to log in to the TL OSINT VM are **osint:osint**
 
-https://www.tracelabs.org/trace-labs-osint-vm/
+https://www.tracelabs.org/initiatives/osint-vm
 
 ## Applications included in the build 
 
@@ -42,6 +54,7 @@ https://www.tracelabs.org/trace-labs-osint-vm/
 * Stegosuite
 
 **Domains**
+* Domainfy (OSRFramework)
 * Sublist3r
 
 **Downloaders**
@@ -53,35 +66,38 @@ https://www.tracelabs.org/trace-labs-osint-vm/
 
 **Email**
 * Buster
+* Checkfy (OSRFramework)
 * Infoga
-* OSINT-Search
+* Mailfy (OSRFramework)
 * theHarvester
 * h8mail
 
 **Frameworks**
 * Little Brother
+* OSRFramework
 * sn0int
 * Spiderfoot
 * Maltego
 
 **Phone Numbers**
-* OSINT-Search
+* Phonefy (OSRFramework)
 * PhoneInfoga
 
 **Social Media**
 * Instaloader
 * Twint
+* Searchfy (OSRFramework)
+* Tiktok Scraper
 
 **Usernames**
+* Alias Generator (OSRFramework)
 * Sherlock
+* Usufy (OSRFramework)
 
-**Other tools (not listed in the menu)**
-* checkdmarc
+**Other tools
 * Photon
-* Carbon14
 * Sherlock
 * Shodan
-* Wireshark
 
 ## Configuration Settings
 **Firefox**

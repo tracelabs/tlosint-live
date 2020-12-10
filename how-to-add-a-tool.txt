@@ -23,3 +23,8 @@ Follow the examples but essentially it's one line that runs your tool
 Note: All of these helper scripts will get moved to /usr/bin/ during the install process above
 
 
+*** /kali-config/variant-tracelabs/package-lists/kali.list.chroot ***
+
+Think of this file as the reference list of additional tools.
+This will contain only the tool names (e.g. sherlock, maltego, etc.)
+Follow the examples in the file.

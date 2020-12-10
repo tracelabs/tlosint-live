@@ -6,6 +6,8 @@ tput setaf 5;echo "#################"
 echo "[+] Update + Upgrade System.."
 sudo apt update -qq 
 sudo apt upgrade -qq -y
+sudo npm install npm@latest -g
+sudo npm update -g
 
 echo "[+] Upgrading Kali version to latest..."
 sudo apt dist-upgrade -qq -y
@@ -232,3 +234,6 @@ tput setaf 5;echo "[+] Updating WikiLeaker..."
 	fi
 }
 tput setaf 2;echo "[+] Done."
+
+############################
+

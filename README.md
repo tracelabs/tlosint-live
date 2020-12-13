@@ -74,6 +74,7 @@ https://www.tracelabs.org/initiatives/osint-vm
 
 **Frameworks**
 * Little Brother
+* OnionSearch
 * OSRFramework
 * sn0int
 * Spiderfoot

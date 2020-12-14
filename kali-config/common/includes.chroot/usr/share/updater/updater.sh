@@ -237,3 +237,15 @@ tput setaf 2;echo "[+] Done."
 
 ############################
 
+tput setaf 5;echo "[+] Updating OnionSearch..."
+{
+  if [ -d "/usr/share/OnionSearch" ]; then        
+    cd /usr/share/OnionSearch
+    sudo git pull https://github.com/megadose/OnionSearch.git --rebase
+	else
+    sudo git clone https://github.com/megadose/OnionSearch.git /usr/share/OnionSearch
+	fi
+}
+tput setaf 2;echo "[+] Done."
+
+############################

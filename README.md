@@ -43,7 +43,6 @@ https://www.tracelabs.org/initiatives/osint-vm
 ## Applications included in the build 
 
 **Browsers**
-* Chromium Web Browser
 * Firefox ESR
 * Tor Browser
 

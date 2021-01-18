@@ -43,7 +43,6 @@ https://www.tracelabs.org/initiatives/osint-vm
 ## Applications included in the build 
 
 **Browsers**
-* Chromium Web Browser
 * Firefox ESR
 * Tor Browser
 
@@ -78,6 +77,7 @@ https://www.tracelabs.org/initiatives/osint-vm
 * sn0int
 * Spiderfoot
 * Maltego
+* OnionSearch
 
 **Phone Numbers**
 * Phonefy (OSRFramework)

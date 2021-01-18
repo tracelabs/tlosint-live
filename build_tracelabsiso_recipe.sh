@@ -30,11 +30,6 @@ function internet_access {
 	  echo -e '[!]'" Will try and use DHCP to 'fix' the issue" 1>&2
 	  chattr -i /etc/resolv.conf 2>/dev/null
 	  dhclient -r
-	  #--- Second interface causing issues?
-#	  ip addr show eth1 &>/dev/null
-#	  [[ "$?" == 0 ]] \
-#		&& route delete default gw 192.168.155.1 2>/dev/null
-	  #--- Request a new IP
 	  dhclient
 	  dhclient eth0 2>/dev/null
 	  dhclient wlan0 2>/dev/null
@@ -70,12 +65,6 @@ function tlosint-install {
 	
 	##### OS Version
 	OS_VERSION=$(cat /etc/issue)
-
-	
-	##### Disabling the lockscreen
-	#xset s 0 0
-    #xset s off
-    #gsettings set org.gnome.desktop.session idle-delay 0
 	
 	kali_path="/opt/live-build-config"
 	tl_path="/opt/tlosint-live"
@@ -101,8 +90,6 @@ function tlosint-install {
 		apt-get update -qq -y 
 		dpkg --configure -a
 		apt --fix-broken install
-		#apt-get upgrade -y
-		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
 		apt-get install curl git -y
@@ -123,7 +110,7 @@ function tlosint-install {
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
-
+		
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig

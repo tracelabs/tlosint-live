@@ -23,3 +23,4 @@ build.log
 squid.conf
 squid_setup.log
 .DS_Store
+build_tracelabsiso_recipe.sh

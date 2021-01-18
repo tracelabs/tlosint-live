@@ -8,7 +8,7 @@ on:
   push:
     branches: [ dev, master ]
   pull_request:
-    branches: [ dev, master ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

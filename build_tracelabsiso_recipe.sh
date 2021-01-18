@@ -108,13 +108,7 @@ function tlosint-install {
 		apt-get install curl git -y
 		apt-get install live-build -y
 		apt-get install cdebootstrap -y
-		apt-get install squid -y
 		echo "[+] Live build pre-requisites installed ... "
-
-		#wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/prateepb/kali-live-build/master/squid.conf
-		#/etc/init.d/squid start
-		#grep -qxF "http_proxy=http://localhost:3128/"  /etc/environment || echo "http_proxy=http://localhost:3128/" >> /etc/environment
-		#echo "[+] Squid set-up completed .... "
 
 	    # Copy all the files required for the Tracelabs ISO to the latest Kali live-build repo
 		cp -rfv $tl_path/kali-config/variant-tracelabs/ $kali_path/kali-config/
@@ -129,11 +123,7 @@ function tlosint-install {
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
-		#-- --apt-http-proxy=${http_proxy}
-		
-		##### Cleanup
-		#apt-get remove -qq squid -y
-		#rm -f /etc/squid/squid.conf
+
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig
@@ -143,7 +133,7 @@ function tlosint-install {
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+		git clone --branch dev https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
 		tlosint-install
 	fi
 }

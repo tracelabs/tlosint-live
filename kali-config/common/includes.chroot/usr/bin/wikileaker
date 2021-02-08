@@ -1,4 +1,3 @@
 #!/bin/sh
 
-cd /usr/share/DumpsterDiver
 exec python3 /usr/share/WikiLeaker/WikiLeaker.py "$@"

@@ -2,7 +2,7 @@
 
 cd /home/osint
 
-wget -O upater-current.sh https://raw.githubusercontent.com/tracelabs/tlosint-live/humandecoded/updater-current.sh
+wget -O updater-current.sh https://raw.githubusercontent.com/tracelabs/tlosint-live/humandecoded/updater-current.sh
 
 chmod +x updater-current.sh
 

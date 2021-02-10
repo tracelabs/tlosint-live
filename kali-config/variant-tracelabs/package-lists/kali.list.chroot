@@ -76,6 +76,8 @@ sublist3r
 osrframework
 
 # Browsers
+chromium
+joplin
 torbrowser-launcher
 tor
 firefox-esr

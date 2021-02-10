@@ -90,7 +90,6 @@ function tlosint-install {
 		apt-get update -qq -y 
 		dpkg --configure -a
 		apt --fix-broken install
-		apt upgrade -qq -y
 		echo "[+] Updates done ... "
 
 		apt-get install curl git -y

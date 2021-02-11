@@ -133,11 +133,11 @@ python3 setup.py install
 
 npm i -g tiktok-scraper
 
-
 git clone --recursive https://github.com/megadose/OnionSearch.git /usr/share/OnionSearch
 cd /usr/share/OnionSearch
 python3 setup.py install
 
 chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop
+chmod +x /usr/bin/alias-generator
 EOS

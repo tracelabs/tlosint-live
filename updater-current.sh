@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-tput setaf 5;echo "#################"
-tput setaf 5;echo "# OSINT Updater #"
-tput setaf 5;echo "#################"
+tput setaf 5;echo "###############################"
+tput setaf 5;echo "# Trace Labs OSINT VM Updater #"
+tput setaf 5;echo "###############################"
 
 echo "[+] Update + Upgrade System.."
 sudo apt update -qq 
@@ -13,10 +13,12 @@ echo "[+] Upgrading Kali version to latest..."
 sudo apt dist-upgrade -qq -y
 sudo apt full-upgrade -qq -y
 
-tput setaf 5;echo "[+] Updating youtube-dl..."
+#################
+
+tput setaf 5;echo "[+] Replace Kali Firefox Bookmarks..."
 {
-        sudo -H pip3 install --upgrade youtube-dl
-} 
+sudo wget -O /usr/share/firefox-esr/distribution/distribution.ini https://raw.githubusercontent.com/tracelabs/tlosint-live/master/kali-config/common/includes.chroot/usr/share/firefox-esr/distribution/distribution.ini
+}
 tput setaf 2;echo "[+] Done."
 
 #################
@@ -58,20 +60,6 @@ tput setaf 5;echo "[+] Updating PhoneInfoga..."
 tput setaf 2;echo "[+] Done."
 
 ###################
-
-tput setaf 5;echo "[+] Updating theHarvester..."
-{
-        if [ -d "/usr/share/theHarvester" ]; then        
-	
-		cd /usr/share/theHarvester
-        	sudo git pull https://github.com/laramies/theHarvester.git  --rebase
-	else
-		sudo git clone https://github.com/laramies/theHarvester.git /usr/share/theHarvester
-	fi
-}
-tput setaf 2;echo "[+] Done."
-
-####################
 
 tput setaf 5;echo "[+] Updating ExifScan..."
 {
@@ -141,22 +129,6 @@ tput setaf 5;echo "[+] Updating Metagoofil..."
         	sudo git pull https://github.com/opsdisk/metagoofil.git --rebase
 	else
 		sudo git clone https://github.com/opsdisk/metagoofil /usr/share/metagoofil
-	fi
-} 
-tput setaf 2;echo "[+] Done."
-
-##########################
-
-tput setaf 5;echo "[+] Updating OSINT-Search..."
-{
-        if [ -d "/usr/share/OSINT-Search" ]; then        
-	
-		cd /usr/share/OSINT-Search
-        	sudo git pull https://github.com/am0nt31r0/OSINT-Search.git --rebase
-        	sudo pip3 install git+https://github.com/abenassi/Google-Search-API --upgrade
-       		sudo pip3 install https://github.com/PaulSec/API-dnsdumpster.com/archive/master.zip --user
-	else
-		sudo git clone https://github.com/am0nt31r0/OSINT-Search /usr/share/OSINT-Search
 	fi
 } 
 tput setaf 2;echo "[+] Done."

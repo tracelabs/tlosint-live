@@ -110,7 +110,6 @@ function tlosint-install {
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
-		
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig

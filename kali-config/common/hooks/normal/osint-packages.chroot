@@ -40,7 +40,6 @@ pip3 install --upgrade elasticsearch
 pip3 install --upgrade geopy
 pip3 install --upgrade h8mail
 pip3 install --upgrade shodan
-#pip3 install --upgrade instaloader
 
 mkdir -p /usr/share/phoneinfoga
 wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz
@@ -111,11 +110,6 @@ cd /usr/share/reconspider
 python3 setup.py install
 chmod +x /usr/bin/reconspider
 
-git clone --recursive https://github.com/thewhiteh4t/FinalRecon.git /usr/share/FinalRecon
-cd /usr/share/FinalRecon
-pip3 install -r requirements.txt
-chmod +x /usr/bin/finalrecon
-
 git clone --recursive https://github.com/WebBreacher/WhatsMyName.git /usr/share/WhatsMyName
 cd /usr/share/WhatsMyName
 pip3 install -r requirements.txt
@@ -126,17 +120,13 @@ cd /usr/share/WikiLeaker
 pip3 install -r requirements.txt
 chmod +x /usr/bin/wikileaker
 
-git clone --recursive https://github.com/i3visio/osrframework /usr/share/osrframework
-cd /usr/share/osrframework
-pip3 install -r requirements.txt
-python3 setup.py install
-
 npm i -g tiktok-scraper
 
 git clone --recursive https://github.com/megadose/OnionSearch.git /usr/share/OnionSearch
 cd /usr/share/OnionSearch
 python3 setup.py install
 
+pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator

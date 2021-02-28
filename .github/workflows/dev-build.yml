@@ -21,7 +21,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    
+    # Trouble shooting the space in the build
+    - name: Get Size information
+      run: df -h
     # Runs a single command using the runners shell
     #- name: run the install
     #  run: wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash

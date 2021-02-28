@@ -13,9 +13,11 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
     - name: Build ISO
-    - uses: actions/checkout@v2
-    - run: |
+      run: |
         sudo bash build_tracelabsiso_recipe.sh
         zip kali-linux-rolling-live-tracelabs-amd64.zip /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso
         ls -lah kali-linux-rolling-live-tracelabs-amd64.zip

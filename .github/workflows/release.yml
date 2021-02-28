@@ -1,47 +1,46 @@
-# This is a basic workflow to publish the ISO to the releases section
+name: Release ISO
 
 on:
   push:
-    branches: [ master ]
-    tags:
-      - v* # Push events to matching v*, i.e. v1.0, v20.15.10
-  pull_request:
-    branches: [ master ]
-    tags:
-      - v* # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: release ISO
+    branches:
+    - master
 
 jobs:
   build:
     name: Upload Release Asset
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Check if Git tag exists
-        #run: echo "::set-env name=HEAD_TAG::$(git tag --points-at HEAD)"
+
+      - name: Check Tag Exists
         run:  echo "$(git tag --points-at HEAD)" >> $GITHUB_ENV
-      - name: Runs only if Git tag exists
+
+      - name: Run While Tag Exists
         run: echo "This runs because Git tag points at HEAD ..."
-        if: env.GITHUB_ENV != ''        
-      - name: Build project # This would actually build your project, using zip for an example artifact
-        if: env.GITHUB_ENV != '' 
+        if: env.GITHUB_ENV != ''
+
+      - name: Build ISO
+        if: env.GITHUB_ENV != ''
         run: |
-          wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
+          sudo bash build_tracelabsiso_recipe.sh
           zip -s 1500m kali-linux-rolling-live-tracelabs-amd64.zip /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso
           ls -lah kali-linux-rolling-live-tracelabs-amd64.zip
-      - name: create-checksum-ISO
-        if: env.GITHUB_ENV != '' 
+
+      - name: Create ISO Checksum
+        if: env.GITHUB_ENV != ''
         run: sha256sum /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso > checksums.txt
-      - name: create-checksum-zip1
-        if: env.GITHUB_ENV != '' 
+
+      - name: Create ZIP1 Checksum
+        if: env.GITHUB_ENV != ''
         run: sha256sum kali-linux-rolling-live-tracelabs-amd64.zip >> checksums.txt
-      - name: create-checksum-zip2
-        if: env.GITHUB_ENV != '' 
-        run: sha256sum kali-linux-rolling-live-tracelabs-amd64.z01 >> checksums.txt             
+
+      - name: Create ZIP2 Checksum
+        if: env.GITHUB_ENV != ''
+        run: sha256sum kali-linux-rolling-live-tracelabs-amd64.z01 >> checksums.txt
+
       - name: Create Release
-        if: env.GITHUB_ENV != '' 
+        if: env.GITHUB_ENV != ''
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -51,31 +50,34 @@ jobs:
           release_name: Release ${{ env.GITHUB_ENV }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset part I
-        if: env.GITHUB_ENV != '' 
-        id: upload-release-asset 
+
+      - name: Upload Release Asset Part 1
+        if: env.GITHUB_ENV != ''
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./kali-linux-rolling-live-tracelabs-amd64.z01
           asset_name: TLosint-live-${{ env.GITHUB_ENV }}.z01
           asset_content_type: application/zip
-      - name: Upload Release Asset part II
-        if: env.GITHUB_ENV != '' 
-        id: upload-release-asset2 
+
+      - name: Upload Release Asset Part 2
+        if: env.GITHUB_ENV != ''
+        id: upload-release-asset2
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./kali-linux-rolling-live-tracelabs-amd64.zip
           asset_name: TLosint-live-${{ env.GITHUB_ENV }}.zip
           asset_content_type: application/zip
-      - name: upload-SHA256checksums
-        if: env.GITHUB_ENV != '' 
-        id: upload-release-asset-checksums 
+
+      - name: Upload Checksums
+        if: env.GITHUB_ENV != ''
+        id: upload-release-asset-checksums
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -84,6 +86,3 @@ jobs:
           asset_path: ./checksums.txt
           asset_name: sha256-checksums_${{ env.GITHUB_ENV }}.txt
           asset_content_type: text/plain
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch

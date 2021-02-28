@@ -26,8 +26,8 @@ jobs:
     - name: Get Size information
       run: df -h
     - name: Cleaning up docker 
-      run:
-        sudo docker system prune --all -f
+      run: |
+        sudo docker system prune --all -f;
         sudo find /var/lib/docker/containers/ -type f -name “*.log” -delete
     # Runs a single command using the runners shell
     #- name: run the install

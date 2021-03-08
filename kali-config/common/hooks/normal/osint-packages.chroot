@@ -47,11 +47,6 @@ cd /usr/share/phoneinfoga
 tar xvf phoneinfoga_$(uname -s)_$(uname -m).tar.gz
 chmod +x /usr/bin/phoneinfoga
 
-git clone --recursive https://github.com/twintproject/twint.git /usr/share/Twint
-cd /usr/share/Twint
-pip3 install -r requirements.txt
-chmod +x /usr/bin/twint
-
 git clone --recursive https://github.com/hatlord/Spiderpig.git /usr/share/Spiderpig
 cd /usr/share/Spiderpig
 bundle install

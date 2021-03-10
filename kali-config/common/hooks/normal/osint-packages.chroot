@@ -121,7 +121,7 @@ git clone --recursive https://github.com/megadose/OnionSearch.git /usr/share/Oni
 cd /usr/share/OnionSearch
 python3 setup.py install
 
-pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator

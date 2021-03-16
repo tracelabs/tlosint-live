@@ -30,7 +30,6 @@ function internet_access {
 	  echo -e '[!]'" Will try and use DHCP to 'fix' the issue" 1>&2
 	  chattr -i /etc/resolv.conf 2>/dev/null
 	  dhclient -r
-
 	  dhclient
 	  dhclient eth0 2>/dev/null
 	  dhclient wlan0 2>/dev/null
@@ -91,8 +90,6 @@ function tlosint-install {
 		apt-get update -qq -y 
 		dpkg --configure -a
 		apt --fix-broken install
-		#apt-get upgrade -y
-		#apt-get dist-upgrade -y
 		echo "[+] Updates done ... "
 
 		apt-get install curl git -y
@@ -113,7 +110,6 @@ function tlosint-install {
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
-
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig
@@ -123,7 +119,7 @@ function tlosint-install {
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+		git clone --branch dev https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
 		tlosint-install
 	fi
 }

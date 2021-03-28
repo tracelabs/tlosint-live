@@ -21,8 +21,16 @@ You will need a host\vm with Docker-engine installed. Installation guide can be 
 Once you have docker install, you just need to run:
 ```
 docker pull freed0m/tlosint-vm
+```
+On Linux systems run:
+```
 docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
 ```
+On Windows run:
+```
+docker run --privileged -v ./data:/data freed0m/tlosint-vm
+```
+
 Once the docker container will finish running, you will be able to locate the ISO file inside a folder named "data" in the location you ran the commands.
 Now you can use the ISO file to install the tlosint vm.
 

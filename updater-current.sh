@@ -221,3 +221,7 @@ tput setaf 5;echo "[+] Updating OnionSearch..."
 tput setaf 2;echo "[+] Done."
 
 ############################
+
+#fix updater on host system to pull from main branch
+sed -i 's/dev/main/g' /usr/share/updater/updater.sh
+

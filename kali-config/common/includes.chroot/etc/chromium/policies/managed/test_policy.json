@@ -11,7 +11,7 @@
   "DefaultGeolocationSetting": 0,
   "DefaultNotificationsSetting": 2,
   "DefaultPopupsSetting": 2,
-  "DeveloperToolsDisabled": true,
+  "DeveloperToolsDisabled": false,
   "DisabledPlugins": [
     "Chrome PDF Viewer",
     "Java",

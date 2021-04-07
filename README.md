@@ -19,10 +19,25 @@ The following changes have been made to the default Kali git repo:
 ## Building the ISO file on Docker
 You will need a host\vm with Docker-engine installed. Installation guide can be found here: https://docs.docker.com/engine/install/
 Once you have docker install, you just need to run:
-```
+**Linux**
+
+```bash
 docker pull freed0m/tlosint-vm
 docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
 ```
+
+**Windows Powershell**
+```bash
+docker pull freed0m/tlosint-vm
+docker run --privileged -v ${PWD}\data:/data freed0m/tlosint-vm
+```
+
+**Windows CMD**
+```bash
+docker pull freed0m/tlosint-vm
+docker run --privileged -v %cd%\data:/data freed0m/tlosint-vm
+```
+
 Once the docker container will finish running, you will be able to locate the ISO file inside a folder named "data" in the location you ran the commands.
 Now you can use the ISO file to install the tlosint vm.
 

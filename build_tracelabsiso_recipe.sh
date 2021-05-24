@@ -105,13 +105,14 @@ function tlosint-install {
 
 		echo "[+] Kali ISO build process starting ... "
 		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
+		cat /opt/live-build-config/build.sh | head -162 | tail -3
 		sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		# quick debug test
 		cat /opt/live-build-config/build.sh | head -173 | tail -30
-		sed -i '163s/if [ "$KALI_ARCH" = "x86" ]; then' /opt/live-build-config/build.sh
+		sed -i '163s/.*/if [ "$KALI_ARCH" = "x86" ]; then' /opt/live-build-config/build.sh
 		cat /opt/live-build-config/build.sh | head -173 | tail -30
 		$kali_path/build.sh --verbose --variant tracelabs
 		rm -f kali-archive-keyring_2020.2_all.deb

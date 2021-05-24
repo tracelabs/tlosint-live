@@ -111,9 +111,9 @@ function tlosint-install {
 		sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		# quick debug test
-		cat /opt/live-build-config/build.sh | head -173 | tail -30
-		sed -i '163s/.*/if [ "$KALI_ARCH" = "x86" ]; then' /opt/live-build-config/build.sh
-		cat /opt/live-build-config/build.sh | head -173 | tail -30
+		#cat /opt/live-build-config/build.sh | head -173 | tail -30
+		sed -i '163s/.*/if [ "$KALI_ARCH" = "x86" ]; then/' /opt/live-build-config/build.sh
+		#cat /opt/live-build-config/build.sh | head -173 | tail -30
 		$kali_path/build.sh --verbose --variant tracelabs
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list

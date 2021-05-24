@@ -112,6 +112,7 @@ function tlosint-install {
 		# quick debug test
 		apt install dos2unix -y
 		dos2unix /opt/live-build-config/build.sh
+		cat /opt/live-build-config/build.sh | head -173 | tail -10
 		$kali_path/build.sh --verbose --variant tracelabs
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list

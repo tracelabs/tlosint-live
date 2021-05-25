@@ -19,6 +19,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Get Size information
+        run: df -h
+      - name: Cleaning up docker 
+        run: |
+          sudo docker system prune --all -f;
+          sudo find /var/lib/docker/containers/ -type f -name “*.log” -delete
+      - name: Clear up more space
+        run: |
+          sudo rm -rf /opt/hostedtoolcache
+          sudo rm -rf /opt/az
       - name: Check if Git tag exists
         #run: echo "::set-env name=HEAD_TAG::$(git tag --points-at HEAD)"
         run:  echo "$(git tag --points-at HEAD)" >> $GITHUB_ENV

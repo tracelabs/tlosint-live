@@ -31,7 +31,10 @@ jobs:
           sudo rm -rf /opt/az
       - name: Check if Git tag exists
         #run: echo "::set-env name=HEAD_TAG::$(git tag --points-at HEAD)"
-        run:  echo "$(git tag --points-at HEAD)" >> $GITHUB_ENV
+        run: | 
+          echo "$(git tag --points-at HEAD)" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+        
       - name: Runs only if Git tag exists
         run: echo "This runs because Git tag points at HEAD ..."
         if: env.GITHUB_ENV != ''        

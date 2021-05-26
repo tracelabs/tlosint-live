@@ -40,6 +40,8 @@ pip3 install --upgrade elasticsearch
 pip3 install --upgrade geopy
 pip3 install --upgrade h8mail
 pip3 install --upgrade shodan
+pip3 install toutatis
+
 
 mkdir -p /usr/share/phoneinfoga
 wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz
@@ -119,6 +121,10 @@ npm i -g tiktok-scraper
 
 git clone --recursive https://github.com/megadose/OnionSearch.git /usr/share/OnionSearch
 cd /usr/share/OnionSearch
+python3 setup.py install
+
+git clone https://github.com/megadose/toutatis.git /usr/share/toutatis
+cd /usr/share/toutatis
 python3 setup.py install
 
 pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint

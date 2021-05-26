@@ -20,11 +20,11 @@ The following changes have been made to the default Kali git repo:
 You will need a host\vm with Docker-engine installed. Installation guide can be found here: https://docs.docker.com/engine/install/
 Once you have docker install, you just need to run:
 
-**On Linux systems run:**
 ```bash
 docker pull freed0m/tlosint-vm
 docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
 ```
+
 **Windows Powershell:**
 ```bash
 docker pull freed0m/tlosint-vm

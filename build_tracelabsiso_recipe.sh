@@ -105,17 +105,11 @@ function tlosint-install {
 
 		echo "[+] Kali ISO build process starting ... "
 		##### removing version check to allow build on ubuntu (DON'T REMOVE, NEED THIS FOR CI\CD)
-		#cat /opt/live-build-config/build.sh | head -162 | tail -3
 		#sed -i '161s/.*/#exit 1/' /opt/live-build-config/build.sh
 		#sed -i '166s/.*/#exit 1/' /opt/live-build-config/build.sh
 		#sed -i '177s/.*/#exit 1/' /opt/live-build-config/build.sh
 		#sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		sed -i '181s/.*/#exit 1/' /opt/live-build-config/build.sh
-		# quick debug test
-		#cat /opt/live-build-config/build.sh | head -173 | tail -30
-		#sed -i '163s/.*/if [ "$KALI_ARCH" = "x86" ]; then/' /opt/live-build-config/build.sh
-		cat /opt/live-build-config/build.sh | head -182 | tail -3
-		#sed -i '178s/.*/;/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
 		rm -f kali-archive-keyring_2020.2_all.deb
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
@@ -126,7 +120,7 @@ function tlosint-install {
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone --branch dev https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
 		tlosint-install
 	fi
 }

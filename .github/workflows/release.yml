@@ -34,9 +34,7 @@ jobs:
         id: check-tag
         run: |
           result=${{ github.event.ref }}
-          if [ -z $result ]; then
-          echo ::set-output name=tag_exists::false
-          elif [ $result =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$ ]; then
+          if [[ $result =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
           echo ::set-output name=tag_exists::true
           fi   
       - name: Runs only if Git tag exists

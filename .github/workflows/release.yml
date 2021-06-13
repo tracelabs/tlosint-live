@@ -86,7 +86,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload Release Asset part II
         if: steps.check-tag.outputs.tag_exists == 'true' 
-        id: upload-release-asset 
+        id: upload-release-asset2 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -97,7 +97,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload Release Asset part III
         if: steps.check-tag.outputs.tag_exists == 'true' 
-        id: upload-release-asset2 
+        id: upload-release-asset3 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

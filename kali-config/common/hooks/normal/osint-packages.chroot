@@ -127,7 +127,7 @@ git clone https://github.com/megadose/toutatis.git /usr/share/toutatis
 cd /usr/share/toutatis
 python3 setup.py install
 
-pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+sudo pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 mv /root/.local/bin/twint /usr/local/bin/twint
 chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop

@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# if not argument passed, the default branch is master
-if [ $1 != "" ]; then
-    BRANCH=$1
-else
-    BRANCH="master"
-fi
+
 
 # Log output to STDOUT and to a file.
 export logPath="squid_setup.log"
@@ -127,8 +122,11 @@ function tlosint-install {
 		rm -f /etc/apt/sources.list.orig
        # if tlosint-live not in place
 	  else
-	     git clone --branch "$BRANCH" https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
-		 tlosint-install
+	      file_path=$(realpath $0)
+	      repo_path=$(dirname "$file_path")
+		  cp -r "$repo_path" "$tl_path"
+		
+		  tlosint-install
 	  
 	  fi
 
@@ -138,7 +136,11 @@ function tlosint-install {
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone --branch "$BRANCH" https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+        #copy current branch for building
+		file_path=$(realpath $0)
+	    repo_path=$(dirname "$file_path")
+		cp -r "$repo_path" "$tl_path"
+		
 		tlosint-install
 	fi
     
@@ -146,4 +148,7 @@ function tlosint-install {
 		
 root_check
 #clean up
-sudo rm -rf /opt/tlosint-live
+iso_path=$(find /opt/live-build-config -name "*.iso")
+mv "$iso_path" /opt/
+rm -rf "$kali_path"
+rm -rf "$tl_path"

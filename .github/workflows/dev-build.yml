@@ -21,14 +21,16 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    # Trouble shooting the space in the build
-    - name: Get Size information
-      run: df -h
-    - name: Cleaning up docker 
+
+    # Cleanup Docker
+    - name: Docker Cleanup
       run: |
         sudo docker system prune --all -f;
         sudo find /var/lib/docker/containers/ -type f -name “*.log” -delete
+    - name: Clear up more space
+      run: |
+        sudo rm -rf /opt/hostedtoolcache
+        sudo rm -rf /opt/az
     # Runs a single command using the runners shell
     #- name: run the install
     #  run: wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash

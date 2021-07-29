@@ -31,62 +31,83 @@ jobs:
           sudo rm -rf /opt/az
       - name: Check if Git tag exists
         #run: echo "::set-env name=HEAD_TAG::$(git tag --points-at HEAD)"
-        run: | 
-          echo "tag_version=$(git tag --points-at HEAD)" >> $GITHUB_ENV
-        
+        id: check-tag
+        run: |
+          result=${{ github.event.ref }}
+          if [[ $result =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo ::set-output name=tag_exists::true
+          fi   
       - name: Runs only if Git tag exists
         run: echo "This runs because Git tag points at HEAD ..."
-        if: env.tag_version != ''        
+        if: steps.check-tag.outputs.tag_exists == 'true'
+      - name: Get tag version
+        id: get_version
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Build project # This would actually build your project, using zip for an example artifact
-        if: env.tag_version != '' 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
         run: |
           wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
           zip -s 1500m kali-linux-rolling-live-tracelabs-amd64.zip /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso
           ls -lah kali-linux-rolling-live-tracelabs-amd64.zip
       - name: create-checksum-ISO
-        if: env.tag_version != '' 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
         run: sha256sum /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso > checksums.txt
-      - name: create-checksum-zip1
-        if: env.tag_version != '' 
+      - name: create-checksum-zip
+        if: steps.check-tag.outputs.tag_exists == 'true' 
         run: sha256sum kali-linux-rolling-live-tracelabs-amd64.zip >> checksums.txt
-      - name: create-checksum-zip2
-        if: env.tag_version != '' 
-        run: sha256sum kali-linux-rolling-live-tracelabs-amd64.z01 >> checksums.txt             
+      - name: create-checksum-z01
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        run: sha256sum kali-linux-rolling-live-tracelabs-amd64.z01 >> checksums.txt
+      - name: create-checksum-z02
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        run: sha256sum kali-linux-rolling-live-tracelabs-amd64.z02 >> checksums.txt  
       - name: Create Release
-        if: env.tag_version != '' 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.GITHUB_ENV }}
-          release_name: Release ${{ env.GITHUB_ENV }}
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: false
       - name: Upload Release Asset part I
-        if: env.tag_version != '' 
-        id: upload-release-asset 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        id: upload-release-asset-z01 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./kali-linux-rolling-live-tracelabs-amd64.z01
-          asset_name: TLosint-live-${{ env.GITHUB_ENV }}.z01
+          asset_name: TLosint-live-${{ steps.get_version.outputs.VERSION }}.z01
           asset_content_type: application/zip
       - name: Upload Release Asset part II
-        if: env.tag_version != '' 
-        id: upload-release-asset2 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        id: upload-release-asset-z02 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./kali-linux-rolling-live-tracelabs-amd64.z02
+          asset_name: TLosint-live-${{ steps.get_version.outputs.VERSION }}.z02
+          asset_content_type: application/zip
+      - name: Upload Release Asset part III
+        if: steps.check-tag.outputs.tag_exists == 'true' 
+        id: upload-release-asset-zip 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./kali-linux-rolling-live-tracelabs-amd64.zip
-          asset_name: TLosint-live-${{ env.GITHUB_ENV }}.zip
+          asset_name: TLosint-live-${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
       - name: upload-SHA256checksums
-        if: env.tag_version != '' 
+        if: steps.check-tag.outputs.tag_exists == 'true' 
         id: upload-release-asset-checksums 
         uses: actions/upload-release-asset@v1
         env:
@@ -94,8 +115,8 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./checksums.txt
-          asset_name: sha256-checksums_${{ env.GITHUB_ENV }}.txt
+          asset_name: sha256-checksums_${{ steps.get_version.outputs.VERSION }}.txt
           asset_content_type: text/plain
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the master branch 

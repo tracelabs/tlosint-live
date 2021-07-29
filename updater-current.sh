@@ -222,6 +222,5 @@ tput setaf 2;echo "[+] Done."
 
 ############################
 
-#fix updater on host system to pull from main branch
-sed -i 's/dev/master/g' /usr/share/updater/updater.sh
+
 

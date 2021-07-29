@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 # Log output to STDOUT and to a file.
 export logPath="squid_setup.log"
 exec &> >( tee -a $logPath)
@@ -69,10 +71,11 @@ function tlosint-install {
 	kali_path="/opt/live-build-config"
 	tl_path="/opt/tlosint-live"
 	
+	# check for kali live build on system
 	if [ -d "$kali_path" ]; then
-		
+      # check for tlosint-live on system
 	  if [ -d "$tl_path" ]; then
-	    
+	    # check for not using Kali
 		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
 		  apt-get -qq install gnupg
   		  wget -q 'https://archive.kali.org/archive-key.asc'
@@ -86,6 +89,8 @@ function tlosint-install {
 		  dpkg -i kali-archive-keyring_2020.2_all.deb
 
 	    fi
+		# save host system apt settings
+		cat /etc/apt/sources.list > /etc/apt/sources.list.orig
 		
 		apt-get update -qq -y 
 		dpkg --configure -a
@@ -112,17 +117,38 @@ function tlosint-install {
 		sed -i '181s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
 		rm -f kali-archive-keyring_2020.2_all.deb
+		# restore original apt settings
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig
+       # if tlosint-live not in place
+	  else
+	      file_path=$(realpath $0)
+	      repo_path=$(dirname "$file_path")
+		  cp -r "$repo_path" "$tl_path"
+		
+		  tlosint-install
+	  
 	  fi
 
+
+     # if live-build-config not in place
 	else
 		# Clone the Kali live-build and Tracelabs repositories 
 		echo "[+] tlosint-live & live-build-config directories not found, creating."
 		git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /opt/live-build-config
-		git clone https://github.com/tracelabs/tlosint-live.git /opt/tlosint-live
+        #copy current branch for building
+		file_path=$(realpath $0)
+	    repo_path=$(dirname "$file_path")
+		cp -r "$repo_path" "$tl_path"
+		
 		tlosint-install
 	fi
+    
 }
 		
 root_check
+#clean up
+iso_path=$(find /opt/live-build-config -name "*.iso")
+mv "$iso_path" /opt/
+rm -rf "$kali_path"
+rm -rf "$tl_path"

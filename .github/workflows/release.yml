@@ -48,11 +48,11 @@ jobs:
         if: steps.check-tag.outputs.tag_exists == 'true' 
         run: |
           wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
-          zip -s 1500m kali-linux-rolling-live-tracelabs-amd64.zip /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso
+          zip -s 1500m kali-linux-rolling-live-tracelabs-amd64.zip /opt/kali-linux-rolling-live-tracelabs-amd64.iso
           ls -lah kali-linux-rolling-live-tracelabs-amd64.zip
       - name: create-checksum-ISO
         if: steps.check-tag.outputs.tag_exists == 'true' 
-        run: sha256sum /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso > checksums.txt
+        run: sha256sum /opt/kali-linux-rolling-live-tracelabs-amd64.iso > checksums.txt
       - name: create-checksum-zip
         if: steps.check-tag.outputs.tag_exists == 'true' 
         run: sha256sum kali-linux-rolling-live-tracelabs-amd64.zip >> checksums.txt

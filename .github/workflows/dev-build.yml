@@ -40,6 +40,6 @@ jobs:
       run: |
         wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
         df -h
-        zip kali-linux-rolling-live-tracelabs-amd64.zip /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso
+        zip kali-linux-rolling-live-tracelabs-amd64.zip /opt/kali-linux-rolling-live-tracelabs-amd64.iso
         df -h
         ls -lah kali-linux-rolling-live-tracelabs-amd64.zip

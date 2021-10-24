@@ -21,6 +21,23 @@ sudo find /usr/share/ -name ORIG_HEAD -size -1b -delete
 # Fix: sherlock no such file
 sudo sed -i 's/\/usr\/share\/sherlock\/sherlock\.py/\/usr\/share\/sherlock\/sherlock\/sherlock.py/' /usr/bin/sherlock
 
+# Fix: stego-toolkit and exifscan
+clean_dir() {
+  if [ -d "${1}" ]; then
+        if [ "$(wc -c <"${1}"/README.md)" -lt 1 ]; then
+            echo README.md is zero byte size fixing..
+            # Regular update process should clone when it sees no dir
+            sudo rm -rf "${1}"
+        fi
+    fi
+}
+
+STEGO_DIR=/usr/share/stego-toolkit
+EXIFSCAN_DIR=/usr/share/exifscan
+
+clean_dir STEGO_DIR
+clean_dir EXIFSCAN_DIR
+
 #################
 
 tput setaf 5;echo "[+] Replace Kali Firefox Bookmarks..."

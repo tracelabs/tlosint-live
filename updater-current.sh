@@ -13,6 +13,14 @@ echo "[+] Upgrading Kali version to latest..."
 sudo apt dist-upgrade -qq -y
 sudo apt full-upgrade -qq -y
 
+echo "[+] 2021.2 OVA fixup..."
+
+# Fix: ORIG_HEAD broken reference
+sudo find /usr/share/ -name ORIG_HEAD -size -1b -delete
+
+# Fix: sherlock no such file
+sudo sed -i 's/\/usr\/share\/sherlock\/sherlock\.py/\/usr\/share\/sherlock\/sherlock\/sherlock.py/' /usr/bin/sherlock
+
 #################
 
 tput setaf 5;echo "[+] Replace Kali Firefox Bookmarks..."

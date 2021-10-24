@@ -56,14 +56,22 @@ tput setaf 2;echo "[+] Done."
 
 tput setaf 5;echo "[+] Updating PhoneInfoga..."
 {
-        if [ -d "/usr/share/phoneinfoga" ]; then        
+    PHONEINFOGA_RELEASE="latest" # examples: latest, tag/v2.0.8
+	PHONEINFOGA_FILE=/usr/share/phoneinfoga/phoneinfoga_"$(uname -s)"_"$(uname -m)".tar.gz
+	PHONEINFOGA_URL=https://github.com/sundowndev/phoneinfoga/releases/"${PHONEINFOGA_RELEASE}"/download/phoneinfoga_"$(uname -s)"_"$(uname -m)".tar.gz
 	
-		cd /usr/share/phoneinfoga
-		sudo git init
-        	sudo git pull https://github.com/sundowndev/PhoneInfoga.git --rebase
+	cd /usr/share/phoneinfoga || sudo mkdir -p /usr/share/phoneinfoga && cd /usr/share/phoneinfoga/
+	http_response=$(sudo curl -L -o "${PHONEINFOGA_FILE}" -z "${PHONEINFOGA_FILE}" "${PHONEINFOGA_URL}" -s -w "%{http_code}" 2>/dev/null)
+	if [ "${http_response}" -eq 200 ]; then
+	    echo "New version found updating.."
+	    sudo tar xvf "${PHONEINFOGA_FILE}"
+	    sudo chmod +x /usr/bin/phoneinfoga
+	elif [ "${http_response}" -eq 304 ]; then
+	    echo "No updates found.."
 	else
-		sudo git clone https://github.com/sundowndev/PhoneInfoga.git /usr/share/phoneinfoga
+	    echo "Failed to get update. HTTP_ERROR ${http_response}"
 	fi
+
 }
 tput setaf 2;echo "[+] Done."
 
@@ -121,22 +129,6 @@ tput setaf 5;echo "[+] Updating Infoga..."
         	sudo git pull https://github.com/m4ll0k/Infoga.git --rebase
 	else
 		sudo git clone https://github.com/m4ll0k/Infoga /usr/share/Infoga
-	fi
-} 
-tput setaf 2;echo "[+] Done."
-
-#########################
-
-tput setaf 5;echo "[+] Updating Metagoofil..."
-{
-
-	if [ -d "/usr/share/metagoofil" ]; then        
-	
-		cd /usr/share/metagoofil
-		sudo git init
-        	sudo git pull https://github.com/opsdisk/metagoofil.git --rebase
-	else
-		sudo git clone https://github.com/opsdisk/metagoofil /usr/share/metagoofil
 	fi
 } 
 tput setaf 2;echo "[+] Done."

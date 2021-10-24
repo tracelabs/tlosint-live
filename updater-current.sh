@@ -13,6 +13,11 @@ echo "[+] Upgrading Kali version to latest..."
 sudo apt dist-upgrade -qq -y
 sudo apt full-upgrade -qq -y
 
+echo "[+] 2021.2 OVA fixup..."
+
+# Fix: ORIG_HEAD broken reference
+sudo find /usr/share/ -name ORIG_HEAD -size -1b -delete
+
 #################
 
 tput setaf 5;echo "[+] Replace Kali Firefox Bookmarks..."

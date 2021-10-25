@@ -35,8 +35,8 @@ clean_dir() {
 STEGO_DIR=/usr/share/stego-toolkit
 EXIFSCAN_DIR=/usr/share/exifscan
 
-clean_dir STEGO_DIR
-clean_dir EXIFSCAN_DIR
+clean_dir "${STEGO_DIR}"
+clean_dir "${EXIFSCAN_DIR}"
 
 #################
 

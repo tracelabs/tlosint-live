@@ -26,7 +26,6 @@ git
 golang
 python3
 python3-pip
-python-dev
 build-essential
 python2.7-dev
 python2

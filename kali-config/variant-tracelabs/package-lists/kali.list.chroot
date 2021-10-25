@@ -27,7 +27,7 @@ golang
 python3
 python3-pip
 build-essential
-python2.7-dev
+python2-dev
 python2
 #python-pip
 curl
@@ -48,7 +48,6 @@ libsqlite3-0
 sqlite3-doc
 ruby-dev
 libpq-dev
-python-dev
 nodejs
 npm
 

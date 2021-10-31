@@ -9,6 +9,7 @@ on:
     branches: [ dev ]
   pull_request:
     branches: [ dev ]
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,8 +23,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Cleanup Docker
-    - name: Docker Cleanup
+    - name: Cache iso
+      id: cache-iso
+      uses: actions/cache@v2
+      with:
+        path: /opt/kali-linux-rolling-live-tracelabs-amd64.iso
+        key: ${{ runner.os }}-iso
+
+
+    # Clean up some latent docker images
+    - name: Docker cleanup
       run: |
         sudo docker system prune --all -f;
         sudo find /var/lib/docker/containers/ -type f -name “*.log” -delete
@@ -38,8 +47,33 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script (build the ISO)
       run: |
-        wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
+        sudo bash $GITHUB_WORKSPACE/build_tracelabsiso_recipe.sh
         df -h
         zip kali-linux-rolling-live-tracelabs-amd64.zip /opt/kali-linux-rolling-live-tracelabs-amd64.iso
         df -h
         ls -lah kali-linux-rolling-live-tracelabs-amd64.zip
+
+  test:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Load cached ISO
+      uses: actions/cache@v1
+      with:
+        path: path: /opt/kali-linux-rolling-live-tracelabs-amd64.iso
+        key: ${{ runner.os }}-iso
+
+    - name: Run a multi-line script (test ISO)
+      run: |
+        sudo apt update
+        sudo apt install -y qem qemu-system-x86 ovmf
+        cd /opt
+        qemu-img create -f qcow2 /tmp/kali-test.hdd.img 20G
+        qemu-system-x86_64 \
+          -enable-kvm \
+          -drive if=virtio,aio=threads,cache=unsafe,format=qcow2,file=/tmp/kali-test.hdd.img \
+          -cdrom /opt/kali-linux-rolling-live-tracelabs-amd64.iso \
+          -boot once=d
+        

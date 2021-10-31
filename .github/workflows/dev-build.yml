@@ -62,7 +62,7 @@ jobs:
     - name: Load cached ISO
       uses: actions/cache@v1
       with:
-        path: path: /opt/kali-linux-rolling-live-tracelabs-amd64.iso
+        path: /opt/kali-linux-rolling-live-tracelabs-amd64.iso
         key: ${{ runner.os }}-iso
 
     - name: Run a multi-line script (test ISO)

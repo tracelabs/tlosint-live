@@ -135,4 +135,11 @@ chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator
 rm /etc/xdg/menus/applications-merged/kali-applications.menu
+
+# Install Vortimo
+vortimo_debian=$(curl -s https://www.vortimo.com/down/ | grep --color -E "[^\S ]*Vortimo-.*[0-9].deb" -o | awk -F '="' '{print $2}')
+vortimo_package=$(echo $vortimo_debian | awk -F '/' '{print $NF}')
+curl -O -s $vortimo_debian
+dpkg -i $vortimo_package
+rm $vortimo_package
 EOS

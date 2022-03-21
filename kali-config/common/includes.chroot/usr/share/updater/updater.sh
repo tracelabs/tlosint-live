@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-cd /home/osint
+cd $HOME
 
 wget -O updater-current.sh https://raw.githubusercontent.com/tracelabs/tlosint-live/master/updater-current.sh
 
 chmod +x updater-current.sh
 
-sudo /home/osint/updater-current.sh
+sudo $HOME/updater-current.sh
 
 wget -O bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 

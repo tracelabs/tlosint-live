@@ -78,19 +78,25 @@ function tlosint-install {
 	    # check for not using Kali
 		if [ "$OS_VERSION" != "Kali GNU/Linux Rolling \n \l" ]; then
 		  apt-get -qq install gnupg
+		  # download kali signing key
   		  wget -q 'https://archive.kali.org/archive-key.asc'
-		  apt-key add archive-key.asc
+		  gpg --import archive-key.asc	
+		  rm -f archive-key.asc
+		  # put key where apt will be expecting it
+		  gpg --export 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6 > /usr/share/keyrings/kali-archive-keyring.gpg
+		  
 		  cat /etc/apt/sources.list > /etc/apt/sources.list.orig
 		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 		  
-		  wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
+		  
 		  apt-get update -qq
-		  dpkg --configure -a
-		  dpkg -i kali-archive-keyring_2020.2_all.deb
+		
+		else
+		    # save host system apt settings
+		    cat /etc/apt/sources.list > /etc/apt/sources.list.orig
 
 	    fi
-		# save host system apt settings
-		cat /etc/apt/sources.list > /etc/apt/sources.list.orig
+		
 		
 		apt-get update -qq -y 
 		dpkg --configure -a
@@ -116,7 +122,7 @@ function tlosint-install {
 		#sed -i '182s/.*/#exit 1/' /opt/live-build-config/build.sh
 		#sed -i '181s/.*/#exit 1/' /opt/live-build-config/build.sh
 		$kali_path/build.sh --verbose --variant tracelabs
-		rm -f kali-archive-keyring_2020.2_all.deb
+		#rm -f kali-archive-keyring_2020.2_all.deb
 		# restore original apt settings
 		cat /etc/apt/sources.list.orig > /etc/apt/sources.list
 		rm -f /etc/apt/sources.list.orig

@@ -141,5 +141,9 @@ cd /usr/share/twayback
 pip install -r requirements.txt
 chmod +x /usr/bin/twayback
 
-#
+# mark update script as executable
+chmod +x /usr/share/updater/updater.sh
+chmod +x /etc/skel/Desktop/Updater.desktop
+chmod +x /usr/bin/alias-generator
+rm /etc/xdg/menus/applications-merged/kali-applications.menu
 EOS

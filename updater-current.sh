@@ -48,14 +48,6 @@ tput setaf 2;echo "[+] Done."
 
 #################
 
-tput setaf 5;echo "[+] Updating Twint..."
-{
-        sudo -H pip3 install --upgrade twint
-} 
-tput setaf 2;echo "[+] Done."
-
-
-##################
 
 tput setaf 5;echo "[+] Updating LittleBrother..."
 {

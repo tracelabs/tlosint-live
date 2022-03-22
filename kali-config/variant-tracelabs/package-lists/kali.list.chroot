@@ -21,7 +21,7 @@ kali-desktop-xfce
 open-vm-tools
 open-vm-tools-desktop
 virtualbox-guest-x11
-virtualbox-guest-dkms
+virtualbox-dkms
 
 # Git package pre-reqs
 git

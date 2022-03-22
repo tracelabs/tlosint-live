@@ -5,18 +5,18 @@ echo "deb http://http.kali.org/kali kali-last-snapshot main non-free contrib" | 
 apt-get install software-properties-common -y
 apt-get update 
 apt-get upgrade -y
-apt-get install -y python-pip
+apt-get install -y python3-pip
 cargo build --release
-pip3 install --upgrade virtualenv
-pip3 install --upgrade tweepy
-pip3 install --upgrade pillow
-pip3 install --upgrade exifread
-pip3 install --upgrade jinja2
-pip3 install --upgrade oauth2pip3 
-pip3 install --upgrade youtube-dl
+pip install --upgrade virtualenv
+pip install --upgrade tweepy
+pip install --upgrade pillow
+pip install --upgrade exifread
+pip install --upgrade jinja2
+pip install --upgrade oauth2pip 
+pip install --upgrade youtube-dl
 pip install --upgrade requests
-pip3 install --upgrade fake_useragent
-pip3 install --upgrade dnsdumpster
+pip install --upgrade fake_useragent
+pip install --upgrade dnsdumpster
 pip install --upgrade simplejson
 pip install --upgrade cfscrape
 pip install --upgrade python-docx
@@ -29,18 +29,18 @@ pip install --upgrade click
 pip install --upgrade numpy
 pip install --upgrade tqdm
 pip install --upgrade shodan
-pip3 install --upgrade googletransx
-pip3 install --upgrade requirements
-pip3 install --upgrade schedule
-pip3 install --upgrade pandas
-pip3 install --upgrade aiohttp
-pip3 install --upgrade aiohttp_socks
-pip3 install --upgrade cchardet
-pip3 install --upgrade elasticsearch
-pip3 install --upgrade geopy
-pip3 install --upgrade h8mail
-pip3 install --upgrade shodan
-pip3 install toutatis
+pip install --upgrade googletransx
+pip install --upgrade requirements
+pip install --upgrade schedule
+pip install --upgrade pandas
+pip install --upgrade aiohttp
+pip install --upgrade aiohttp_socks
+pip install --upgrade cchardet
+pip install --upgrade elasticsearch
+pip install --upgrade geopy
+pip install --upgrade h8mail
+pip install --upgrade shodan
+pip install toutatis
 
 
 mkdir -p /usr/share/phoneinfoga
@@ -56,7 +56,7 @@ chmod +x /usr/bin/spiderpig
 
 git clone --recursive https://github.com/securing/DumpsterDiver.git /usr/share/DumpsterDiver
 cd /usr/share/DumpsterDiver
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 #dumpsterdiver writes error log to home folder
 chmod 757 /usr/share/DumpsterDiver
 chmod +x /usr/bin/dumpsterdiver
@@ -68,7 +68,7 @@ chmod +x /usr/bin/infoga
 
 git clone --recursive https://github.com/Lulz3xploit/LittleBrother /usr/share/LittleBrother
 cd /usr/share/LittleBrother
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 chmod +x /usr/bin/littlebrother
 
 git clone --recursive https://github.com/kpcyrd/sn0int.git /usr/share/sn0int
@@ -78,12 +78,12 @@ export PATH=""/root/.cargo/bin:$PATH""
 source ~/.bashrc
 chmod +x /usr/bin/sn0int
 
-#pip3 install -U checkdmarc
-#pip3 install -U git+https://github.com/domainaware/checkdmarc.git
+#pip install -U checkdmarc
+#pip install -U git+https://github.com/domainaware/checkdmarc.git
 
 #git clone --recursive https://github.com/s0md3v/Photon.git /usr/share/Photon
 #cd /usr/share/Photon
-#pip3 install -r requirements.txt
+#pip install -r requirements.txt
 #chmod +x /usr/bin/photon
 
 git clone --recursive https://github.com/sham00n/buster /usr/share/buster
@@ -109,12 +109,12 @@ chmod +x /usr/bin/reconspider
 
 git clone --recursive https://github.com/WebBreacher/WhatsMyName.git /usr/share/WhatsMyName
 cd /usr/share/WhatsMyName
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 chmod +x /usr/bin/whatsmyname
 
 git clone --recursive https://github.com/jocephus/WikiLeaker.git /usr/share/WikiLeaker
 cd /usr/share/WikiLeaker 
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 chmod +x /usr/bin/wikileaker
 
 npm i -g tiktok-scraper
@@ -128,9 +128,20 @@ cd /usr/share/toutatis
 python3 setup.py install
 
 
-pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+# Install Vortimo
 
-mv /root/.local/bin/twint /usr/local/bin/twint
+vortimo_debian=\$(curl -s https://www.vortimo.com/down/ | grep --color -E "[^\S ]*Vortimo-.*[0-9].deb" -o | awk -F '="' '{print \$2}')
+vortimo_package=\$(echo \$vortimo_debian | awk -F '/' '{print \$NF}')
+curl -O -s \$vortimo_debian
+dpkg -i \$vortimo_package
+rm \$vortimo_package
+
+git clone https://github.com/Mennaruuk/twayback.git /usr/share/twayback
+cd /usr/share/twayback
+pip install -r requirements.txt
+chmod +x /usr/bin/twayback
+
+# mark update script as executable
 chmod +x /usr/share/updater/updater.sh
 chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator

@@ -48,14 +48,6 @@ tput setaf 2;echo "[+] Done."
 
 #################
 
-tput setaf 5;echo "[+] Updating Twint..."
-{
-        sudo -H pip3 install --upgrade twint
-} 
-tput setaf 2;echo "[+] Done."
-
-
-##################
 
 tput setaf 5;echo "[+] Updating LittleBrother..."
 {
@@ -233,6 +225,18 @@ tput setaf 5;echo "[+] Updating OnionSearch..."
     sudo git pull https://github.com/megadose/OnionSearch.git --rebase
 	else
     sudo git clone https://github.com/megadose/OnionSearch.git /usr/share/OnionSearch
+	fi
+}
+tput setaf 2;echo "[+] Done."
+
+
+tput setaf 5;echo "[+] Updating Twayback..."
+{
+  if [ -d "/usr/share/twayback" ]; then        
+    cd /usr/share/twayback
+    sudo git pull https://github.com/Mennaruuk/twayback.git --rebase
+	else
+    sudo git clone https://github.com/Mennaruuk/twayback.git /usr/share/twayback
 	fi
 }
 tput setaf 2;echo "[+] Done."

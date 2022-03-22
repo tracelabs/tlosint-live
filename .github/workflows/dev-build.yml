@@ -6,9 +6,9 @@ name: dev-Build
 # events but only for the master branch
 on:
   push:
-    branches: [ dev ]
+    branches: [ dev_ ]
   pull_request:
-    branches: [ dev ]
+    branches: [ dev_ ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,7 +38,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script (build the ISO)
       run: |
-        wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev/build_tracelabsiso_recipe.sh | sudo bash
+        wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/dev_/build_tracelabsiso_recipe.sh | sudo bash
         df -h
         zip kali-linux-rolling-live-tracelabs-amd64.zip /opt/kali-linux-rolling-live-tracelabs-amd64.iso
         df -h

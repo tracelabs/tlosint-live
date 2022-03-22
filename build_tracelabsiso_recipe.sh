@@ -86,7 +86,7 @@ function tlosint-install {
 		  gpg --export 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6 > /usr/share/keyrings/kali-archive-keyring.gpg
 		  
 		  cat /etc/apt/sources.list > /etc/apt/sources.list.orig
-		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
+		  echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
 		  
 		  
 		  apt-get update -qq

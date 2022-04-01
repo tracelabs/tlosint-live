@@ -21,8 +21,8 @@ You will need a host\vm with Docker-engine installed. Installation guide can be 
 Once you have docker install, you just need to run:
 
 ```bash
-docker pull freed0m/tlosint-vm
-docker run --privileged -v $(pwd)/data:/data freed0m/tlosint-vm
+docker build -t tlvm .
+docker run --privileged -v $(pwd)/data:/data tlosint-vm
 ```
 
 **Windows Powershell:**

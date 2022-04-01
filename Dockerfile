@@ -1,5 +1,7 @@
 FROM kalilinux/kali-rolling
 
+COPY . /tlosint-live
+
 # Base packages
 RUN export DISPLAY=:0.0 &&\
 	export TERM=xterm &&\
@@ -44,8 +46,9 @@ RUN echo '#!/usr/bin/env bash \n\
 	sudo sed -i '1161s%umount%#umount%' /usr/share/debootstrap/functions \n\
 	sudo sed -i '1191s%umount%#umount%' /usr/share/debootstrap/functions  \n\
 	sudo sed -i '1179s%umount%#umount%' /usr/share/debootstrap/functions  \n\
-	sudo wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/master/build_tracelabsiso_recipe.sh | sudo bash \n\
-    cp /opt/live-build-config/images/kali-linux-rolling-live-tracelabs-amd64.iso /data/kali-linux-rolling-live-tracelabs-amd64.iso' > /opt/run.sh &&\
+	cd /tlosint-live \n\
+	sudo ./build_tracelabsiso_recipe.sh \n\
+    cp /opt/kali-linux-rolling-live-tracelabs-amd64.iso /data/kali-linux-rolling-live-tracelabs-amd64.iso' > /opt/run.sh &&\
     chmod +x /opt/run.sh
 
 

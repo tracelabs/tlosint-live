@@ -22,19 +22,19 @@ Once you have docker install, you just need to run:
 
 ```bash
 docker build -t tlvm .
-docker run --privileged -v $(pwd)/data:/data tlosint-vm
+docker run --privileged -v $(pwd)/data:/data tlvm
 ```
 
 **Windows Powershell:**
 ```bash
-docker pull freed0m/tlosint-vm
-docker run --privileged -v ${PWD}\data:/data freed0m/tlosint-vm
+docker build -t tlvm .
+docker run --privileged -v ${PWD}\data:/data tlvm
 ```
 
 **Windows CMD:**
 ```bash
-docker pull freed0m/tlosint-vm
-docker run --privileged -v %cd%\data:/data freed0m/tlosint-vm
+docker build -t tlvm .
+docker run --privileged -v %cd%\data:/data tlvm
 ```
 
 Once the docker container will finish running, you will be able to locate the ISO file inside a folder named "data" in the location you ran the commands.
@@ -45,7 +45,9 @@ Now you can use the ISO file to install the tlosint vm.
 ### Setup
 This build has only been tested on a pre-existing Kali environment, as recommended by Offensive Security. 
 ```
-sudo wget -O - https://raw.githubusercontent.com/tracelabs/tlosint-live/master/build_tracelabsiso_recipe.sh | sudo bash
+git clone https://github.com/tracelabs/tlosint-live.git
+cd tl-osint
+sudo ./build_tracelabsiso_recipe.sh
 ```
 If the build process is successful, a .iso file will be created in the `/opt/live-build-config/images` directory. The .iso file can be used for live boot or to install the Virtual Machine. The .iso file can also be converted to a .ova file using the `ovftool` as outlined in the "Converting to an OVA" page (https://www.kali.org/docs/virtualization/converting-to-ova/).
 
@@ -102,6 +104,7 @@ https://www.tracelabs.org/initiatives/osint-vm
 * Twint
 * Searchfy (OSRFramework)
 * Tiktok Scraper
+* Twayback
 
 **Usernames**
 * Alias Generator (OSRFramework)

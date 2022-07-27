@@ -41,7 +41,7 @@ pip install --upgrade geopy
 pip install --upgrade h8mail
 pip install --upgrade shodan
 pip install toutatis
-
+pip install --upgrade yt-dlp
 
 mkdir -p /usr/share/phoneinfoga
 wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz

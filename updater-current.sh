@@ -39,7 +39,7 @@ clean_dir "${STEGO_DIR}"
 clean_dir "${EXIFSCAN_DIR}"
 
 #################
-
+# should we be backing up any changes the user has made before overwriting? 
 tput setaf 5;echo "[+] Replace Kali Firefox Bookmarks..."
 {
 sudo wget -O /usr/share/firefox-esr/distribution/distribution.ini https://raw.githubusercontent.com/tracelabs/tlosint-live/master/kali-config/common/includes.chroot/usr/share/firefox-esr/distribution/distribution.ini

@@ -147,4 +147,7 @@ chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator
 rm /etc/xdg/menus/applications-merged/kali-applications.menu
 
+
+
+
 EOS

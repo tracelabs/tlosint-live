@@ -244,6 +244,17 @@ tput setaf 5;echo "[+] Updating Twayback..."
 }
 tput setaf 2;echo "[+] Done."
 
+tput setaf 5;echo "[+] Updating yt-dlp..."
+{
+  pip install --updgrade yt-dlp
+}
+tput setaf 2;echo "[+] Done."
+
+tput setaf 5;echo "[+] Updating youtube-dl..."
+{
+  pip install --updgrade youtube-dl
+}
+tput setaf 2;echo "[+] Done."
 ############################
 
 

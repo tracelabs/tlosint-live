@@ -136,6 +136,10 @@ chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator
 rm /etc/xdg/menus/applications-merged/kali-applications.menu
 
+# Install Obsidian app image
+mkdir /usr/share/obsidian
+wget -O /usr/share/obsidian/Obsidian-0.15.9.AppImage https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/Obsidian-0.15.9.AppImage 
+chmod +x /usr/share/obsidian/Obsidian-0.15.9.AppImage
 
 
 

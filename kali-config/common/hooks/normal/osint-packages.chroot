@@ -41,7 +41,7 @@ pip install --upgrade geopy
 pip install --upgrade h8mail
 pip install --upgrade shodan
 pip install toutatis
-
+pip install --upgrade yt-dlp
 
 mkdir -p /usr/share/phoneinfoga
 wget https://github.com/sundowndev/phoneinfoga/releases/download/v2.0.8/phoneinfoga_$(uname -s)_$(uname -m).tar.gz -O /usr/share/phoneinfoga/phoneinfoga_$(uname -s)_$(uname -m).tar.gz
@@ -78,29 +78,18 @@ export PATH=""/root/.cargo/bin:$PATH""
 source ~/.bashrc
 chmod +x /usr/bin/sn0int
 
-#pip install -U checkdmarc
-#pip install -U git+https://github.com/domainaware/checkdmarc.git
-
-#git clone --recursive https://github.com/s0md3v/Photon.git /usr/share/Photon
-#cd /usr/share/Photon
-#pip install -r requirements.txt
-#chmod +x /usr/bin/photon
 
 git clone --recursive https://github.com/sham00n/buster /usr/share/buster
 cd /usr/share/buster
 python3 setup.py install
 chmod +x /usr/bin/buster
 
-#git clone --recursive https://github.com/Lazza/Carbon14 /usr/share/Carbon14
 
 git clone --recursive https://github.com/sherlock-project/sherlock.git /usr/share/sherlock
 cd /usr/share/sherlock
 python3 -m pip install -r requirements.txt
 chmod +x /usr/bin/sherlock
 
-#git clone --recursive https://github.com/guelfoweb/knock.git /usr/share/knock
-#cd /usr/share/knock
-#python setup.py install
 
 git clone --recursive https://github.com/bhavsec/reconspider /usr/share/reconspider
 cd /usr/share/reconspider
@@ -147,6 +136,10 @@ chmod +x /etc/skel/Desktop/Updater.desktop
 chmod +x /usr/bin/alias-generator
 rm /etc/xdg/menus/applications-merged/kali-applications.menu
 
+# Install Obsidian app image
+mkdir /usr/share/obsidian
+wget -O /usr/share/obsidian/Obsidian-0.15.9.AppImage https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/Obsidian-0.15.9.AppImage 
+chmod +x /usr/share/obsidian/Obsidian-0.15.9.AppImage
 
 
 

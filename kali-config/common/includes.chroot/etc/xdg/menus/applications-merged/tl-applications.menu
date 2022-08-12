@@ -91,6 +91,9 @@
     <Directory>07-note-taking.directory</Directory>
     <Include>
       <And>
+        <Category>07-note-taking</Category>
+      </And>
+      <And>
         <Filename>joplin.desktop</Filename>
       </And>
       <And>

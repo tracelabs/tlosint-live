@@ -234,10 +234,10 @@ tput setaf 5;echo "[+] Updating Twayback..."
 {
   if [ -d "/usr/share/twayback" ]; then        
     cd /usr/share/twayback
-    sudo git pull https://github.com/Mennaruuk/twayback.git --rebase
+    sudo git pull https://github.com/humandecoded/twayback.git --rebase
 	pip install -r requirements.txt
   else
-	sudo git clone https://github.com/Mennaruuk/twayback.git /usr/share/twayback
+	sudo git clone https://github.com/humandecoded/twayback.git /usr/share/twayback
 	cd /usr/share/twayback
 	pip install -r requirements.txt
   fi

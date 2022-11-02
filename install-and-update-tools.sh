@@ -1,6 +1,6 @@
 #!/bin/sh
 
-
+# update generated on 11-2-22
 sudo apt-get update 
 sudo apt-get dist-upgrade -y
 echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc

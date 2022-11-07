@@ -21,7 +21,6 @@ kali-desktop-xfce
 open-vm-tools
 open-vm-tools-desktop
 
-
 # Git package pre-reqs
 git
 golang

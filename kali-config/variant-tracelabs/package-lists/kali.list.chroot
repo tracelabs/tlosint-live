@@ -27,9 +27,6 @@ golang
 python3
 python3-pip
 build-essential
-#python2.7-dev
-#python2
-#python-pip
 curl
 python-argparse
 build-essential

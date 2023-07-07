@@ -86,17 +86,19 @@ tput setaf 2;echo "[+] Done."
 
 ###################
 
-tput setaf 5;echo "[+] Updating ExifScan..."
-{
-        if [ -d "/usr/share/exifscan" ]; then        
-	
-		cd /usr/share/exifscan
-        	sudo git pull https://github.com/rcook/exifscan.git --rebase
-	else
-		sudo git clone https://github.com/rcook/exifscan /usr/share/exifscan
-	fi
-}
-tput setaf 2;echo "[+] Done."
+# THESE LINES KEPT IN MEMORY OF EXIFSCAN. A ONCE VALUABLE REPO THAT WENT KABOOF BANG BOOM. CAN WE GET A MOMENT OF SILENCE? 
+
+#tput setaf 5;echo "[+] Updating ExifScan..."
+#{
+#        if [ -d "/usr/share/exifscan" ]; then        
+#	
+#		cd /usr/share/exifscan
+#        	sudo git pull https://github.com/rcook/exifscan.git --rebase
+#	else
+#		sudo git clone https://github.com/rcook/exifscan /usr/share/exifscan
+#	fi
+#}
+#tput setaf 2;echo "[+] Done."
 
 #####################
 
